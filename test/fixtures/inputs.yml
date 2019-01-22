@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2019-01-22
+  name_id: 1
+  shop_id: MyString
+  widtdrawl: 1
+  category: 1
+  deposit: 1
+  reason: MyString
+  memo: MyString
+
+two:
+  date: 2019-01-22
+  name_id: 1
+  shop_id: MyString
+  widtdrawl: 1
+  category: 1
+  deposit: 1
+  reason: MyString
+  memo: MyString
