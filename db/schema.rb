@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_23_111315) do
+ActiveRecord::Schema.define(version: 2019_01_23_145446) do
 
   create_table "inputs", force: :cascade do |t|
     t.date "date"
     t.integer "name_id"
-    t.string "shop_id"
-    t.integer "widtdrawl"
+    t.integer "withdrawal"
     t.integer "category"
     t.integer "deposit"
     t.string "reason"
     t.string "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "shop_name"
+    t.string "user_id"
   end
 
   create_table "members", force: :cascade do |t|

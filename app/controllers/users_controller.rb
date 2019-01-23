@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   
    def show
     @users = User.find(params[:id])
-  
+     @inputs = Input.new
   end
   
    def update
