@@ -25,7 +25,8 @@ class UsersController < ApplicationController
     redirect_to("/login")
   end
   
-  def create        
+  def create       
+    
     #raise.params.inspect
     @users =User.new(user_params)
     if @users.save

@@ -11,6 +11,7 @@ class InputsController < ApplicationController
   def create
     
     @inputs =Input.new(input_params)
+     #raise.params.inspect
     if @inputs.save
        redirect_to "/inputs/index"
        flash[:notice]="投稿を作成しました"
@@ -21,7 +22,7 @@ class InputsController < ApplicationController
    def index
       #raise.params.inspect
      
-     @inputs = Input.find_by(user_id: params[:user_id])
+     @inputs = Input.all
      
    end
  

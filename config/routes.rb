@@ -6,8 +6,8 @@ resources:users
    get  "inputs/index" => "inputs#index"
 resources:inputs
   post "login" => "users#login"
-  post "logout" => "users#logout"
+  get "logout" => "users#logout"
   get "signup"=> "users#new"                   ##ユーザー登録ページ
   get  "login"=> "users#login_form"
-
+resources:users
 end
