@@ -4,7 +4,8 @@ root 'home#top'
 get "/about" => "home#about"
 resources:users
 
-get '/login',to:'users#new'
-post '/login',to:'users#create'
-
+  post "login" => "users#login"
+  post "logout" => "users#logout"
+  get "signup"=> "users#new"                   ##ユーザー登録ページ
+  get  "login"=> "users#login_form"
 end

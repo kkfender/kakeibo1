@@ -1,0 +1,39 @@
+
+      <h1>アカウント編集</h1>
+        <% @users.errors.full_messages.each do |message| %>
+         <p class="errors">
+           <%= message %>
+         </p>
+        <% end %>
+          <%= form_for @users ,url: user_path,class:"edit-image"  do |f| %>
+            <p class="standard-font">ユーザー名</p>
+            <%= f.text_field :name %><br>
+            
+            <p class="standard-font">メールアドレス</p>
+            <%= f.email_field :email %><br>
+              <div class="field"><br>
+                <div class ="before-user-image">
+                  <%#= image_tag @users.img.url, id: :img_prev if @users.img? %><br>
+                </div>
+                  <%#= f.check_box :remove_img %>画像を削除する<br><br>
+                  <%#= f.file_field :img, id: :users_img %><br><br>
+<script type="text/javascript">
+$(function() {
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#img_prev').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+   }
+ }
+ $("#users_img").change(function(){
+   readURL(this);
+ });
+});
+</script>
+              </div>
+  
+    <%= f.submit "保存", class: "button" %><br>
+    <% end %>
