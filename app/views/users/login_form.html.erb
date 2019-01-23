@@ -1,0 +1,26 @@
+<div class="new-main">
+  <div class="resister-area">
+    <div class="sampleuser"><br>
+      <p>こちらをご利用ください</p>
+      <p>email:sample@yahoo.com</p>
+      <p>password:11111111</p>
+      <br>
+    </div>
+    <div class="inner-area">
+      <p font-size="20px">ログイン</p>
+      <% if @error_message%>
+        <p class="errors"><%= @error_message %></p>
+      <% end %>
+      <%= form_for :session, url: login_path do |f| %>
+        <div class="input-area">
+         メールアドレス<br>
+        <%= f.text_field :email %><br />
+         パスワード<br>
+        <%= f.password_field :password%><br/><br/>
+        <%= f.submit "ログイン",:class =>"button1" %><br/>
+      <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+

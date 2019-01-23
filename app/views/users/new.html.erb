@@ -1,0 +1,25 @@
+<div class="new-main">
+  <div class="resister-area">
+    <div class="inner-area">
+      <p>新規ユーザー登録</p>
+        <%@users.errors.full_messages.each do |message|%>
+          <p class="errors"><%=message%></p>
+        <%end%>
+          <div class="input-area">
+            <%= form_for @users, url: users_path do |f| %>
+          ユーザー名<br>
+          <%= f.text_field :name %><br/>
+          メールアドレス<br>
+          <%= f.text_field :email %><br />
+          パスワード<br>
+          <%= f.password_field :password %><br />
+          パスワード確認<br>
+          <%= f.password_field :password_confirmation%><br/>
+           サムネイル画像<br/>
+          <%= f.file_field :img %><br/><br/>
+          <%= f.submit "新規登録",:class =>"button1" %><br/>
+          </div>
+            <% end %>
+  </div>
+</div>
+</div>
