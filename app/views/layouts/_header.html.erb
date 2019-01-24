@@ -4,8 +4,8 @@
         <%@current_user=User.find_by(id: session[:user_id])%>
                <%if @current_user%>       <!--ログイン状態で表示-->
        <li class="active"> <%= link_to @current_user.name,"/users/#{@current_user.id}",class:"button"%></li>
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
+        <li class="active"><%= link_to "HOME","/",class:"button"%></a></li>
+        <li><%= link_to "About","/about",class:"button"%></li>
         <li><a href="#contact">Contact</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%=@current_user.name%> <span class="caret"></span></a>
@@ -13,7 +13,8 @@
             
             <li><%= link_to "メインページ",user_path(@current_user),class:"button"%></li>
             <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><%= link_to "詳細",inputs_index_path,class:"button"%></li>
+            
             <li class="divider"></li>
             <li class="dropdown-header">Nav header</li>
             <li><%= link_to "edit",edit_user_path(@current_user),class:"button"%></li>

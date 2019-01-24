@@ -41,14 +41,8 @@ class UsersController < ApplicationController
   def login_form
   end  
   
-  def logout
-    session[:user_id] = nil
-    flash[:notice] = "ログアウトしました"
-    redirect_to("/login")
-  end
-  
    def show
-    @users = User.find(params[:id])
+    @users = User.find_by(id: params[:id])
      @inputs = Input.new
   end
   
@@ -61,6 +55,12 @@ class UsersController < ApplicationController
     else
       render "users/edit"
     end
+  end
+  
+  def destroy 
+    User.find(params[:id]).destroy
+    flash[:notice] = "ユーザーを削除しました"
+    redirect_to ("/login")
   end
   
    def ensure_correct_user
