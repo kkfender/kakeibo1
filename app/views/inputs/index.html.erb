@@ -1,7 +1,15 @@
 
 <div class="center-block">
+  
+  </div>
+<div class="center-block">
+  <%=@users.name+"さん"%><br>
+  <%="月の予算#{@users.monthly_budget}円"%>
   <% @inputs.each do |input| %>
   <%=input.shop_name%>
   <%=input.withdrawal%>
+  <br>
   <%end%>
+   <%= paginate @inputs %>
+
 </div>ssss

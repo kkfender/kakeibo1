@@ -21,16 +21,16 @@ class InputsController < ApplicationController
   end
    def index
       #raise.params.inspect
-     
-     @inputs = Input.all
-     
+     @users = User.find_by(id: @current_user)
+     @inputs = Input.page(params[:page])
+    
    end
  
     private
   
   def input_params
       params.require(:input).permit(
-      :shop_name,:withdrawal).merge(user_id: @current_user.id)
+      :shop_name,:withdrawal,:date).merge(user_id: @current_user.id)
   end
    
   

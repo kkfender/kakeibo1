@@ -10,13 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_23_145446) do
+ActiveRecord::Schema.define(version: 2019_01_24_145616) do
+
+  create_table "expenses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "inputs", force: :cascade do |t|
     t.date "date"
     t.integer "name_id"
     t.integer "withdrawal"
-    t.integer "category"
+    t.string "category"
     t.integer "deposit"
     t.string "reason"
     t.string "memo"
@@ -38,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_01_23_145446) do
     t.string "email"
     t.string "password"
     t.string "password_digest"
+    t.integer "monthly_budget"
   end
 
 end
