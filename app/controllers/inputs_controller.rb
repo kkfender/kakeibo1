@@ -30,7 +30,7 @@ class InputsController < ApplicationController
   
   def input_params
       params.require(:input).permit(
-      :shop_name).merge(user_id: @current_user.id)
+      :shop_name,:withdrawal).merge(user_id: @current_user.id)
   end
    
   

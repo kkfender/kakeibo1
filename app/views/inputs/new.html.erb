@@ -1,6 +1,7 @@
+
 <%= form_for @inputs, url: inputs_path do|f|%>
-      
-        
-        <%= f.text_field :shop_name %><br><br>
+            
+        <%= f.number_field :withdrawal %>出金<br><br>
+        <%= f.text_field :shop_name %>店名<br><br>
         <%=f.submit value:"投稿", class:"button1"%>
           <%end%>
