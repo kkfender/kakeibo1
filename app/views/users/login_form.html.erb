@@ -1,26 +1,28 @@
-<div class="new-main">
-  <div class="resister-area">
-    <div class="sampleuser"><br>
+
+   <div class = "container">
+     	<div class="wrapper">
       <p>こちらをご利用ください</p>
       <p>email:sample@yahoo.com</p>
       <p>password:11111111</p>
-      <br>
+      </div>
     </div>
-    <div class="inner-area">
-      <p font-size="20px">ログイン</p>
+    
+      <div class = "container">
+	<div class="wrapper">
+	<div class="form-signin"> 
+	 <h3 class="form-signin-heading">ログイン</h3>
+
       <% if @error_message%>
         <p class="errors"><%= @error_message %></p>
       <% end %>
-      <%= form_for :session, url: login_path do |f| %>
-        <div class="input-area">
-         メールアドレス<br>
-        <%= f.text_field :email %><br />
-         パスワード<br>
-        <%= f.password_field :password%><br/><br/>
-        <%= f.submit "ログイン",:class =>"button1" %><br/>
-      <%end%>
+		 <%= form_for :session, url: login_path do |f| %>
+		  <%= f.text_field :email,class:"form-control",placeholder:"メールアドレス" %><br />
+		   <%= f.password_field :password,class:"form-control",placeholder:"パスワード" %><br/>
+		   
+        <%= f.submit "ログイン",class:"btn btn-lg btn-primary btn-block" %><br/>
+		   <%end%>
+			   </div>
+
       </div>
     </div>
-  </div>
-</div>
-
+  

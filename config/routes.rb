@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 root 'home#top'
 get "/about" => "home#about"
 resources:users
-   get  "inputs/index" => "inputs#index"
-resources:inputs
+   get  "outputs/index" => "outputs#index"
+resources:outputs
   post "login" => "users#login"
   get "logout" => "users#logout"
   get "signup"=> "users#new"                   ##ユーザー登録ページ

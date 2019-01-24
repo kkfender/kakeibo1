@@ -6,18 +6,31 @@
           <p class="errors"><%=message%></p>
         <%end%>
           <div class="input-area">
+           
             <%= form_for @users, url: users_path do |f| %>
-          ユーザー名<br>
-          <%= f.text_field :name %><br/>
-          メールアドレス<br>
-          <%= f.text_field :email %><br />
-          パスワード<br>
-          <%= f.password_field :password %><br />
-          パスワード確認<br>
-          <%= f.password_field :password_confirmation%><br/>
+           名前<span class="label label-danger">必須項目</span>
+          <%= f.text_field :name ,class:"form-control",placeholder:"名前を入力"%><br/>
+          メールアドレス <span class="label label-danger",>必須項目</span>
+          <%= f.text_field :email ,class:"form-control",placeholder:"メールアドレスを入力"%><br />
+          <div class="row">
+            <div class="form-group has-feedback col-sm-6">
+          パスワード<span class="label label-danger">必須項目</span>
+          
+          <%= f.password_field :password,class:"form-control",placeholder:"パスワードを8文字以上で入力" %><br />
+          
+            </div>
+             <div class="form-group has-feedback col-sm-6">
+          パスワード確認<span class="label label-danger">必須項目</span>
+          <%= f.password_field :password_confirmation,class:"form-control",placeholder:"パスワードを再入力"%><br/>
+           <div class="help-block with-errors"></div>
+            </div>
+          </div>
            サムネイル画像<br/>
-          <%= f.file_field :img %><br/><br/>
-          <%= f.submit "新規登録",:class =>"button1" %><br/>
+         
+         
+             <%= f.file_field :img ,class:"custom-file-input"%><br/><br/>
+       
+          <%= f.submit "新規登録",class:"btn btn-primary" %><br/>
           </div>
             <% end %>
   </div>

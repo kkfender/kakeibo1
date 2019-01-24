@@ -7,12 +7,15 @@ class UsersController < ApplicationController
     @users = User.new
   end
   
+    def index
+    @users = User.all
+  end
   def login
       @users = User.find_by(email: params[:session][:email].downcase)
     if @users && @users.authenticate(params[:session][:password])
       session[:user_id]=@users.id
-      flash[:notice]="ログイン成功しました"
-      redirect_to("/users/index")
+      flash[:success]="ログイン成功しました"
+      redirect_to users_path
     else
       @error_message ="E-mail address or password is wrong"
       render("users/login_form") 
@@ -21,7 +24,7 @@ class UsersController < ApplicationController
   
   def logout
     session[:user_id] = nil
-    flash[:notice] = "ログアウトしました"
+    flash[:success] = "ログアウトしました"
     redirect_to("/login")
   end
   
@@ -31,7 +34,7 @@ class UsersController < ApplicationController
     @users =User.new(user_params)
     if @users.save
       session[:user_id]=@users.id
-      flash[:notice]="ユーザー登録を完了しました"
+      flash[:success]="ユーザー登録を完了しました"
       redirect_to users_path(@users) 
     else
     render "users/new" 
@@ -43,14 +46,14 @@ class UsersController < ApplicationController
   
    def show
     @users = User.find_by(id: params[:id])
-     @inputs = Input.new
+     @outputs = Output.new
   end
   
    def update
      #raise.params.inspect
     @users = User.find_by(id: params[:id])
     if  @users.update_attributes(user_params)
-      flash[:notice] = "ユーザー情報を編集しました"
+      flash[:success] = "ユーザー情報を編集しました"
       redirect_to user_path(@users)
     else
       render "users/edit"
@@ -59,14 +62,14 @@ class UsersController < ApplicationController
   
   def destroy 
     User.find(params[:id]).destroy
-    flash[:notice] = "ユーザーを削除しました"
+    flash[:success] = "ユーザーを削除しました"
     redirect_to ("/login")
   end
   
    def ensure_correct_user
     @users=User.find_by(id: params[:id])
     if @users.id !=@current_user.id
-      flash[:notice]="権限がありません"
+      flash[:warning]="権限がありません"
       redirect_to user_path
     end
   end  

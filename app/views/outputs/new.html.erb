@@ -1,12 +1,15 @@
-<%= form_for @inputs, url: inputs_path do|f|%>
-         <%= date_field_tag :date %>出金日<br><br>
-        <%= f.number_field :withdrawal %>出金<br><br>
-        <%= f.text_field :shop_name %>店名<br><br>
+ <div class="form-group">
+
+<%= form_for @outputs, url: outputs_path do|f|%>
+        <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"),class:"form-control" %>出金日<br><br>
+        <%= f.number_field :withdrawal,class:"form-control" %>出金<br><br>
+        <%= f.text_field :shop_name,class:"form-control" %>店名<br><br>
         <%= f.label :"費目" %><br>
   <%= f.select :category, [["食費", "食費"], ["水道光熱費", "水道光熱費"], ["通信費", "通信費"],
   ["遊興費", "遊興費"], ["交通費", "交通費"], ["美容費", "美容費"], ["医療費", "医療費"],
   ["被服費", "被服費"]  , ["生活雑貨・日用品", "生活雑貨・日用品"], ["教育費", "教育費"], 
   ["交際費", "交際費"], ["住宅費", "住宅費"], ["ペット", "ペット"], ["保険", "保険"], 
-  ["社会保険", "社会保険"],  ["税金", "税金"], ["その他費用", "その他費用"]] ,class:"form-control" %>
+  ["社会保険", "社会保険"],  ["税金", "税金"], ["その他費用", "その他費用"]] ,{},class:"form-control" %>
         <%=f.submit value:"投稿", class:"button1"%>
           <%end%>
+          </div>

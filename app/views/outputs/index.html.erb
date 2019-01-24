@@ -5,11 +5,12 @@
 <div class="center-block">
   <%=@users.name+"さん"%><br>
   <%="月の予算#{@users.monthly_budget}円"%>
-  <% @inputs.each do |input| %>
-  <%=input.shop_name%>
-  <%=input.withdrawal%>
+  <% @outputs.each do |output| %>
+  <%=output.shop_name%>
+  <%=output.withdrawal%>
+  <%=output.date%>
+  <%=output.category%>
   <br>
   <%end%>
-   <%= paginate @inputs %>
-
-</div>ssss
+  </div>
+  <%= paginate @outputs %>
