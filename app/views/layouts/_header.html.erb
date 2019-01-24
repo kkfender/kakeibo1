@@ -3,8 +3,8 @@
       <ul class="nav navbar-nav">
         <%@current_user=User.find_by(id: session[:user_id])%>
                <%if @current_user%>       <!--ログイン状態で表示-->
-       <li class="active"> <%= link_to @current_user.name,"/users/#{@current_user.id}",class:"button"%></li>
-        <li class="active"><%= link_to "HOME","/",class:"button"%></a></li>
+       
+        <li><%= link_to "HOME","/",class:"button "%></li>
         <li><%= link_to "About","/about",class:"button"%></li>
         <li><a href="#contact">Contact</a></li>
         <li class="dropdown">

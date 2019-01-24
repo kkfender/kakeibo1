@@ -23,7 +23,7 @@ class OutputsController < ApplicationController
       
      @users = User.find_by(id: @current_user)
      @outputs = Output.page(params[:page])
-    
+     
    end
  
     private
