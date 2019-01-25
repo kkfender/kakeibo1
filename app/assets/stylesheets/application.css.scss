@@ -1,9 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+/*border:solid black 1px;*/
+  
+
+}
 body {
-    background: -webkit-linear-gradient(left,aqua 100%, #fff 50%);
-    background: linear-gradient(to right,aqua 100%, #fff 50%);
 }
 .footer {
   position: absolute;
@@ -25,8 +28,7 @@ body > .container {
   padding-left: 15px;
 }
 .wrapper {    
-	margin-top: 80px;
-	margin-bottom: 20px;
+	
 }
 
 .form-signin {

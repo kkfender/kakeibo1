@@ -21,16 +21,22 @@ class OutputsController < ApplicationController
   end
    def index
       
-     @users = User.find_by(id: @current_user)
+     @users = User.find_by(id: @current_user.id)
      @outputs = Output.page(params[:page])
+     @withdrawals = Output.where(id: @current_user)
+  
      
    end
+     
+     
+   
  
     private
   
   def output_params
+    
       params.require(:output).permit(
-      :shop_name,:withdrawal,:date,:category).merge(user_id: @current_user.id)
+      :shop_name,:withdrawal,:date,:category,:deposit).merge(user_id: @current_user.id)
   end
    
   
