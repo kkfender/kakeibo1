@@ -46,7 +46,8 @@ class UsersController < ApplicationController
   
    def show
     @users = User.find_by(id: params[:id])
-     @outputs = Output.new
+   #  @outputs = Output.new
+            
   end
   
    def update

@@ -1,4 +1,54 @@
-<div class="content">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="row">
+                <div class="col-xs-6 panel panel-default">
+                   <h1><%= Date.today.strftime("%-m月")%></h1>
+                   <ul class="list-group">
+                     <li class="list-group-item">
+                        <span class="badge"><%= @users.outputs_day.count%></span>
+                       今日の記帳数
+                     </li>
+                      <li class="list-group-item">
+                        <span class="badge"><%= @users.outputs_month.count%></span>
+                       今月の記帳数
+                     </li>
+                      <li class="list-group-item">
+                        <span class="badge"><%= @users.outputs_year.count%></span>
+                       今年の記帳数
+                     </li>
+                     <li class="list-group-item">
+                        <span class="badge"><%= @users.outputs_day_with.sum[1]%></span>
+                       今日の出費
+                     </li>
+                     
+                                          <li class="list-group-item">リスト5</li>
+                    </ul>
+                </div>
+                <div class="col-xs-6"></div>
+                <div class="col-xs-6"></div>
+                <div class="col-xs-6"></div>
+            </div>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
+ 
+ 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 <h1><%=@users.name%>のメインページ</h1>
     <%= link_to "退会",user_path(@users.id), method: :delete, data: {confirm: "本当に退会しますか？"} %>
       </div>
