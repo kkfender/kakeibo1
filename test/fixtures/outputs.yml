@@ -1,21 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  date: 2019-01-25
+  date: 2019-01-26
   name_id: 1
-  shop_name: MyString
-  withdrawl: 1
+  shop_id: MyString
+  widtdrawl: 1
   category: 1
+  deposit: 1
   reason: MyString
   memo: MyString
   user_id: 1
 
 two:
-  date: 2019-01-25
+  date: 2019-01-26
   name_id: 1
-  shop_name: MyString
-  withdrawl: 1
+  shop_id: MyString
+  widtdrawl: 1
   category: 1
+  deposit: 1
   reason: MyString
   memo: MyString
   user_id: 1

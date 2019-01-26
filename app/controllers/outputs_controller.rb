@@ -6,7 +6,7 @@ class OutputsController < ApplicationController
   end
   
    def show
-   
+    
    end
   
   def create
@@ -24,12 +24,19 @@ class OutputsController < ApplicationController
   end
    def index
       
-     @users = User.find_by(id: @current_user.id)
-     @outputs = Output.page(params[:page]).per(10).order('date')
-
+     @users = User.find(@current_user.id)
+     @outputs = Output.where(date: Time.now.all_month).page(params[:page])
      @with_sum = Output.group(:user_id).sum(:withdrawal)   #総出金額
      @depo_sum = Output.group(:user_id).sum(:deposit)   #総入金額
+     @today =  Date.today
      
+    if @this_month.present?
+        @this_month =Date.today
+      else
+        
+        @this_month = Date.parse(params[:date])
+      end
+       
    end
      def edit
     @outputs=Output.find_by(id: params[:id])

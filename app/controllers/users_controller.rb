@@ -47,7 +47,7 @@ class UsersController < ApplicationController
    def show
     @users = User.find_by(id: params[:id])
     @outputs = Output.new
-     @with_sum = Output.group(:user_id).sum(:withdrawal)  
+     #@with_sum = Output.group(:user_id).sum(:withdrawal)  
   end
   
    def update
