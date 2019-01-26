@@ -4,6 +4,7 @@ root 'home#top'
 get "/about" => "home#about"
 resources:users
    get  "outputs/index" => "outputs#index"
+   
 resources:outputs
   post "login" => "users#login"
   get "logout" => "users#logout"

@@ -4,17 +4,20 @@ class OutputsController < ApplicationController
   def new
     @outputs = Output.new
   end
+  
    def show
    
-  end
+   end
   
   def create
     
     @outputs =Output.new(output_params)
      #raise.params.inspect
     if @outputs.save
-       redirect_to "/outputs/index"
        flash[:success]="投稿を作成しました"
+
+       redirect_to "/outputs/index"
+       
     else 
        render("outputs/new")   
     end
@@ -22,13 +25,34 @@ class OutputsController < ApplicationController
    def index
       
      @users = User.find_by(id: @current_user.id)
-     @outputs = Output.page(params[:page])
-     @withdrawals = Output.where(id: @current_user)
-  
+     @outputs = Output.page(params[:page]).per(10).order('date')
+
+     @with_sum = Output.group(:user_id).sum(:withdrawal)   #総出金額
+     @depo_sum = Output.group(:user_id).sum(:deposit)   #総入金額
      
    end
-     
-     
+     def edit
+    @outputs=Output.find_by(id: params[:id])
+  end
+  
+  def update
+    @outputs=Output.find_by(id: params[:id])
+    if  @outputs.update_attributes(output_params)
+   # raise.params.inspect
+      flash[:notice]="投稿を編集しました"
+      redirect_to("/outputs/index")
+    else
+      render("outputs/edit")   
+    end
+  end
+      def destroy
+    @outputs=Output.find_by(id: params[:id]) 
+    if @outputs.destroy
+
+      redirect_to("/outputs/index")
+      flash[:notice]="投稿を削除しました"
+    end
+  end 
    
  
     private

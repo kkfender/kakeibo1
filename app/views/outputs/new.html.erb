@@ -1,28 +1,28 @@
-  <div class="container">
-    <h1 class="page-header text-center">出金</h1>
- <div class="form-group">
 
-<%= form_for @outputs, url: outputs_path,class:"form-horizontal" do|f|%>
-
-       <%=f.label :date,"支出日",class:"col-sm-2 control-label text-right"%>
-       <div class="col-sm-10">
-       <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"),class:"form-control" %>
-       </div>
-      
-       <%=f.label :withdrawal,"支出額",class:"control-label col-sm-2 text-right"%>
-        <div class="col-sm-10"> <%= f.number_field :withdrawal,class:"form-control" %></div>
   
-         <%=f.label :shop_name,"店名",class:"control-label col-sm-2 text-right"%>
-     
-       <div class="col-sm-10"><%= f.text_field :shop_name,class:"form-control" %></div>
-        <%= f.label :category,"費目",class:"control-label col-sm-2 text-right" %><br>
-  <div class="col-sm-10"><%= f.select :category, [["食費", "食費"], ["水道光熱費", "水道光熱費"], ["通信費", "通信費"],
-  ["遊興費", "遊興費"], ["交通費", "交通費"], ["美容費", "美容費"], ["医療費", "医療費"],
-  ["被服費", "被服費"]  , ["生活雑貨・日用品", "生活雑貨・日用品"], ["教育費", "教育費"], 
-  ["交際費", "交際費"], ["住宅費", "住宅費"], ["ペット", "ペット"], ["保険", "保険"], 
-  ["社会保険", "社会保険"],  ["税金", "税金"], ["その他費用", "その他費用"]] ,{},class:"form-control" %></div>
-        <%=f.submit value:"投稿", class:"btn center-block form-control"%> </div>
-          <%end%>
-          </div>
-          </div>
-        
+   <div class="tabs">
+              <input id="all" type="radio" name="tab_item" checked>
+              <label class="tab_item" for="all">
+              <p class="itext">     <i class="far fa-comment"></i> つぶやき </p></label>
+              <input id="programming" type="radio" name="tab_item">
+              <label class="tab_item" for="programming">
+              <p class="itext">     <i class="fas fa-users"></i> フォロー </p></label>
+              <input id="design" type="radio" name="tab_item">
+              <label class="tab_item" for="design">
+               <p class="itext">     <i class="fas fa-users"></i> フォロワー </p></label>
+              <div class="tab_content" id="all_content">
+                <div class="tab_content_description">
+                  <p class="c-txtsp"><%=render"outputs/outputwith"%><%=render"outputs/outputdepo"%></p>
+                </div>
+              </div>
+                <div class="tab_content" id="programming_content">
+                  <div class="tab_content_description">
+                    <p class="c-txtsp"><%=render"outputs/outputwith"%><%=render"outputs/outputwith"%></p>
+                  </div>
+                </div>  
+              <div class="tab_content" id="design_content">
+                <div class="tab_content_description">
+                  <p class="c-txtsp"> <%=render"outputs/outputwith"%></p>
+                </div>
+              </div>
+      </div> 
