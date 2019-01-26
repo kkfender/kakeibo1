@@ -28,8 +28,19 @@ class User < ApplicationRecord
     return  Output.where(user_id: self.id).where(date: search_date.in_time_zone.all_day).group(:user_id).sum(:withdrawal)
   end  
   
-  
-  
+   def outputs_month_with
+    search_date = Date.today
+    return  Output.where(user_id: self.id).where(date: search_date.in_time_zone.all_month).group(:user_id).sum(:withdrawal)
+  end  
+    
+    
+   def last_day
+   today = Date.today
+  last_day = Date.new(today.year, today.month, -1)
+ 
+  return (last_day - today)
+    
+  end
   
   
 

@@ -46,8 +46,8 @@ class UsersController < ApplicationController
   
    def show
     @users = User.find_by(id: params[:id])
-   #  @outputs = Output.new
-            
+    @outputs = Output.new
+     @with_sum = Output.group(:user_id).sum(:withdrawal)  
   end
   
    def update
@@ -89,7 +89,7 @@ class UsersController < ApplicationController
   def user_params
       params.require(:user).permit(
       :name, :email, :password, 
-      :password_confirmation,:monthly_budget)
+      :password_confirmation,:monthly_budget,:monthly_savings)
   end
    
    

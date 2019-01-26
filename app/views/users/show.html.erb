@@ -1,8 +1,54 @@
 <div class="container">
+   <div class="row">
+     <div class="col-md-6">
+  <h1><%=@users.name%>さんのメインページ</h1>
+    </div>
+    <div class="col-md-6">
+      今月の貯金目標
+      <h1><%=@users.monthly_savings%>円</h1>      
+      今月の使える額
+      <h1><%=@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings%>円</h1>  
+      
+       today = Date.today
+  last_day = Date.new(today.year, today.month, -1)
+  
+      今日の使える額
+       <h1><%=(@users.monthly_budget-@users.outputs_month_with.sum[1]
+       -@users.monthly_savings)/(last_day - today)%>円
+      </div>
+  投稿を作成する
+  <%=link_to "投稿",new_output_path%>
+
+      </div></div>
     <div class="row">
-        <div class="col-lg-8">
-            <div class="row">
-                <div class="col-xs-6 panel panel-default">
+        <div class="col-md-6">
+           
+                <div class=" panel panel-default">
+                   <h1><%= Date.today.strftime("%-m月")%></h1>
+                   <ul class="list-group">
+                     <li class="list-group-item">
+                        <span class="badge"><%= @users.outputs_day.count%></span>
+                       今日の記帳数
+                     </li>
+                      <li class="list-group-item">
+                        <span class="badge"><%= @users.outputs_month.count%></span>
+                       今月の記帳数
+                     </li>
+                      <li class="list-group-item">
+                        <span class="badge"><%= @users.outputs_year.count%></span>
+                       今年の記帳数
+                     </li>
+                     <li class="list-group-item">
+                        <span class="badge"><%= @users.outputs_day_with.sum[1]%></span>
+                       今日の出費
+                     </li>
+                     
+                                          <li class="list-group-item">リスト5</li>
+                    </ul>
+                </div> </div>
+               <div class="col-md-6">
+           
+                <div class=" panel panel-default">
                    <h1><%= Date.today.strftime("%-m月")%></h1>
                    <ul class="list-group">
                      <li class="list-group-item">
@@ -25,10 +71,9 @@
                                           <li class="list-group-item">リスト5</li>
                     </ul>
                 </div>
-                <div class="col-xs-6"></div>
-                <div class="col-xs-6"></div>
-                <div class="col-xs-6"></div>
-            </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-6"></div>
+            
         </div>
         <div class="col-lg-4"></div>
     </div>
@@ -49,16 +94,11 @@
   
   
   
-<h1><%=@users.name%>のメインページ</h1>
-    <%= link_to "退会",user_path(@users.id), method: :delete, data: {confirm: "本当に退会しますか？"} %>
-      </div>
-      
-<div class="content">
-<h1><%=@users.name%>の入力ページ</h1>
-  投稿を作成する
-  <%=link_to "投稿",new_output_path%>
 
-      </div>
+      
+
+
+
       
       
       

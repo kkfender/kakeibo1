@@ -13,6 +13,8 @@
             <%= f.email_field :email %><br>
             <p class="standard-font">月予算</p>
             <%= f.number_field :monthly_budget %><br><br>
+            <p class="standard-font">月の貯金目標</p>
+            <%= f.number_field :monthly_savings %><br><br>
               <div class="field"><br>
                 <div class ="before-user-image">
                   <%#= image_tag @users.img.url, id: :img_prev if @users.img? %><br>
@@ -39,3 +41,5 @@ $(function() {
   
     <%= f.submit "保存", class: "button" %><br>
     <% end %>
+        <%= link_to "退会",user_path(@users.id), method: :delete, data: {confirm: "本当に退会しますか？"} %>
+
