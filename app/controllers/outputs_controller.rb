@@ -29,15 +29,16 @@ class OutputsController < ApplicationController
      @with_sum = Output.group(:user_id).sum(:withdrawal)   #総出金額
      @depo_sum = Output.group(:user_id).sum(:deposit)   #総入金額
      @today =  Date.today
-     
-    if @this_month.present?
-        @this_month =Date.today
-      else
+      
+  
+   if (params[:date]).blank?
+      @this_month =Date.today
+    else
+        @this_month =Date.parse(params[:date])
         
-      #  @this_month = Date.parse(params[:date])
       end
-       
-   end
+#      
+  end
      def edit
     @outputs=Output.find_by(id: params[:id])
   end

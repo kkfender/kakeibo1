@@ -7,9 +7,12 @@
  <%#="今月の出費#{@with_sum[@users.id]}円"%>
  <%#="今月の入金#{@depo_sum[@users.id]}円"%>
  <%=@today.strftime("%Y年%m月%d日")%>
- <%#=@this_month.month%>
-  <%#=link_to '前',"/outputs/index/#{ @this_month.last_month}"%>
-            <%#=link_to '次',"/outputs/index/#{ @this_month.next_month}"%>
+
+  <%=link_to '前',"/outputs/index/#{ @this_month.last_month}"%>
+  
+   <%=@this_month.month%>
+   
+            <%=link_to '次',"/outputs/index/#{ @this_month.next_month}"%>
             
             
   <table class="table table-borderd table-striped table-hover">
