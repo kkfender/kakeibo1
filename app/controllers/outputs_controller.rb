@@ -33,12 +33,13 @@ class OutputsController < ApplicationController
      
    if (params[:date]).blank?
       @this_month =Date.today
-      @outputs = Output.where(date: Time.now.all_month).where(user_id: @current_user.id).page(params[:page]).per(10).order("date DESC")
+      @outputs = Output.where(date: Time.now.all_month)
+      .where(user_id: @current_user.id).page(params[:page]).per(20).order("date desc")
 
     else  
         @this_month =Date.parse(params[:date])
-        @outputs= Output.where(date: @this_month.all_month).where(user_id: @current_user.id).page(params[:page]).per(10).order("date DESC")
-
+        @outputs= Output.where(date: @this_month.all_month)
+        .where(user_id: @current_user.id).page(params[:page]).per(20).order("date DESC")
 
       end
     @with_sum = Output.group(:user_id).where(date: @this_month.all_month).sum(:withdrawal)   #総出金額
@@ -51,8 +52,8 @@ class OutputsController < ApplicationController
     @outputs=Output.find_by(id: params[:id])
     if  @outputs.update_attributes(output_params)
    # raise.params.inspect
-      flash[:notice]="投稿を編集しました"
-      redirect_to("/outputs/index")
+      flash[:success]="投稿を編集しました"
+      redirect_to("/outputs")
     else
       render("outputs/edit")   
     end
@@ -61,8 +62,8 @@ class OutputsController < ApplicationController
     @outputs=Output.find_by(id: params[:id]) 
     if @outputs.destroy
 
-      redirect_to("/outputs/index")
-      flash[:notice]="投稿を削除しました"
+      redirect_to("/outputs")
+      flash[:success]="投稿を削除しました"
     end
   end 
    
@@ -72,7 +73,7 @@ class OutputsController < ApplicationController
   def output_params
     
       params.require(:output).permit(
-      :shop_name,:withdrawal,:date,:category,:deposit).merge(user_id: @current_user.id)
+      :shop_name,:withdrawal,:date,:category,:deposit,:memo).merge(user_id: @current_user.id)
   end
    
   
