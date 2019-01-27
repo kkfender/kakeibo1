@@ -8,6 +8,8 @@
           <div class="input-area">
            
             <%= form_for @users, url: users_path do |f| %>
+            <%= f.hidden_field :monthly_budget, :value => 0%>
+            <%= f.hidden_field :monthly_savings, :value => 0%>
            名前<span class="label label-danger">必須項目</span>
           <%= f.text_field :name ,class:"form-control",placeholder:"名前を入力"%><br/>
           メールアドレス <span class="label label-danger",>必須項目</span>

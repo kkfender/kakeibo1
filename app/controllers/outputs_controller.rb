@@ -34,7 +34,7 @@ class OutputsController < ApplicationController
         @this_month =Date.today
       else
         
-        @this_month = Date.parse(params[:date])
+      #  @this_month = Date.parse(params[:date])
       end
        
    end

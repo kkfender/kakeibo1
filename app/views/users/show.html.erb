@@ -8,16 +8,16 @@
     </div>
     <div class="col-md-6">
       今月の貯金目標
-      <h1><%=@users.monthly_savings%>円</h1>      
+      <h1><%=@users.monthly_savings==0?"目標貯金額を入力してください": "#{@users.monthly_savings}円" %></h1>      
       今月の使える額
-      <h1><%=@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings%>円</h1>  
+      <h1><%=@users.monthly_budget==0?"月収入を入力してください": "#{@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings}円"%></h1>  
       
      <%  today = Date.today%>
   <% last_day = Date.new(today.year, today.month, -1)%>
 
   
       今日の使える額
-       <h1><%=(@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings)/(last_day-today).to_i%>円
+       <h1><%=@users.monthly_budget==0?"月収入を入力してください":"#{(@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings)/(last_day-today).to_i}円"%>
       </div>
   
 

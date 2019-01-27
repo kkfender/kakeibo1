@@ -3,15 +3,19 @@
 
 <div class="center-block">
   <%=@users.name+"さん"%><br>
-  <%="月の予算#{@users.monthly_budget}円"%>
- <%="今月の出費#{@with_sum[@users.id]}円"%>
- <%="今月の入金#{@depo_sum[@users.id]}円"%>
- <%=Date.today.strftime("%Y年%m月%d日")%>
-  
+  <%#="月の予算#{@users.monthly_budget}円"%>
+ <%#="今月の出費#{@with_sum[@users.id]}円"%>
+ <%#="今月の入金#{@depo_sum[@users.id]}円"%>
+ <%=@today.strftime("%Y年%m月%d日")%>
+ <%#=@this_month.month%>
+  <%#=link_to '前',"/outputs/index/#{ @this_month.last_month}"%>
+            <%#=link_to '次',"/outputs/index/#{ @this_month.next_month}"%>
+            
+            
   <table class="table table-borderd table-striped table-hover">
     <tr><th>出金日</th><th>店名</th><th>品目</th><th>出金額</th><th>入金額</th><th>編集</th></tr>
  
-  <% @users.outputs.each do |output| %>
+  <% @outputs.each do |output| %>
   <%if output.user_id==@users.id%> 
   <tr>
   <td><%=output.date%></td><td><%=output.shop_name%></td><td>
