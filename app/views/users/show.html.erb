@@ -4,7 +4,7 @@
   <h1><%=@users.name%>さんのメインページ</h1>
  
     投稿を作成する
-  <%=link_to "投稿",new_output_path%>
+  <%=link_to "記帳",new_output_path,class:"btn btn-warning"%>
     </div>
     <div class="col-md-6">
       今月の貯金目標
@@ -44,15 +44,19 @@
                         <span class="badge"><%= @users.outputs_day_with.sum[1]%></span>
                        今日の出費
                      </li>
+                     <li class="list-group-item">
+                        <span class="badge"><%= @users.outputs_month_with.sum[1]%></span>
+                       今月の出費
+                     </li>
                      
-                                          <li class="list-group-item">リスト5</li>
+                                        
                     </ul>
                 </div> </div>
                <div class="col-md-6">
            
                 <div class=" panel panel-default">
                    <h1><%= Date.today.strftime("%-m月")%></h1>
-                   <ul class="list-group">
+                  <ul class="list-group">
                      <li class="list-group-item">
                         <span class="badge"><%= @users.outputs_day.count%></span>
                        今日の記帳数
@@ -69,8 +73,12 @@
                         <span class="badge"><%= @users.outputs_day_with.sum[1]%></span>
                        今日の出費
                      </li>
+                     <li class="list-group-item">
+                        <span class="badge"><%= @users.outputs_month_with.sum[1]%></span>
+                       今月の出費
+                     </li>
                      
-                                          <li class="list-group-item">リスト5</li>
+                                        
                     </ul>
                 </div>
                 <div class="col-md-6"></div>

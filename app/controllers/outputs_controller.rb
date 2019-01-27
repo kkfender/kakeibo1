@@ -33,13 +33,14 @@ class OutputsController < ApplicationController
      
    if (params[:date]).blank?
       @this_month =Date.today
-      @outputs = Output.where(date: Time.now.all_month).page(params[:page])
+      @outputs = Output.where(date: Time.now.all_month).where(user_id: @current_user.id).page(params[:page]).per(10).order("date DESC")
+
     else  
         @this_month =Date.parse(params[:date])
-        @outputs= Output.where(date: @this_month.all_month)
+        @outputs= Output.where(date: @this_month.all_month).where(user_id: @current_user.id).page(params[:page]).per(10).order("date DESC")
+
 
       end
-      @depo_sum = Output.group(:user_id).where(date: @this_month.all_month).sum(:deposit)   #総入金額
     @with_sum = Output.group(:user_id).where(date: @this_month.all_month).sum(:withdrawal)   #総出金額
   end
      def edit
