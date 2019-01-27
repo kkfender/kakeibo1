@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_27_054334) do
+ActiveRecord::Schema.define(version: 2019_01_27_112716) do
 
   create_table "expenses", force: :cascade do |t|
     t.string "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_01_27_054334) do
     t.date "date"
     t.integer "name_id"
     t.integer "withdrawal"
-    t.integer "category"
+    t.string "category"
     t.integer "deposit"
     t.string "reason"
     t.string "memo"
