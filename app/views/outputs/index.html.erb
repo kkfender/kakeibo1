@@ -12,14 +12,14 @@
   
    <%=@this_month.strftime("%m月")%>
    
-            <%=link_to "#{@this_month.last_month.strftime("%Y年%m月")}","/outputs/index/#{ @this_month.next_month}"%>
+            <%=link_to "#{@this_month.next_month.strftime("%Y年%m月")}","/outputs/index/#{ @this_month.next_month}"%>
             
             
   <table class="table table-borderd table-striped table-hover">
     <tr><th>出金日</th><th>店名</th><th>品目</th><th>出金額</th><th>入金額</th><th>編集</th></tr>
  
   <% @outputs.each do |output| %>
-  <%if output.user_id==@users.id%> 
+  <%if output.user_id==@users.id &&%> 
   <tr>
   <td><%=output.date%></td><td><%=output.shop_name%></td><td>
     <%=output.category%></td><td><%=output.withdrawal%></td><td><%=output.deposit%></td>
@@ -31,4 +31,4 @@
   </table>
   </div>
   
-  <%= paginate @outputs %>
+  <%#= paginate @outputs %>

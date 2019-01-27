@@ -3,9 +3,9 @@
     
  <div class="form-group">
 
-<%= form_for @outputs, url: outputs_path,class:"form-horizontal" do|f|%>
+<%= form_for @outputs, url: "/outputs",class:"form-horizontal" do|f|%>
 
-       <%=f.label :date,"支出日",class:"col-sm-2 control-label text-right"%>
+       <%=f.label :date,"支出日",class:"col-sm-2 control-label text-right date"%>
        <div class="col-sm-10">
        <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"),class:"form-control" %>
        </div>

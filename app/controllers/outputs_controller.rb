@@ -6,7 +6,7 @@ class OutputsController < ApplicationController
   end
   
    def show
-    
+     @outputs = Output.new
    end
   
   def create
@@ -16,7 +16,7 @@ class OutputsController < ApplicationController
     if @outputs.save
        flash[:success]="投稿を作成しました"
 
-       redirect_to "/outputs/index"
+       redirect_to "/outputs/index/#{@outputs.date}"
        
     else 
        render("outputs/new")   
@@ -25,17 +25,18 @@ class OutputsController < ApplicationController
    def index
       
      @users = User.find(@current_user.id)
-     @outputs = Output.where(date: Time.now.all_month).page(params[:page])
+    # @outputs = Output.where(date: Time.now.all_month).page(params[:page])
      @with_sum = Output.group(:user_id).sum(:withdrawal)   #総出金額
      @depo_sum = Output.group(:user_id).sum(:deposit)   #総入金額
      @today =  Date.today
-      
-  
+     
    if (params[:date]).blank?
       @this_month =Date.today
-    else
+      @outputs = Output.where(date: Time.now.all_month).page(params[:page])
+    else  
         @this_month =Date.parse(params[:date])
-        
+        @outputs= Output.where(date: @this_month.all_month)
+
       end
 #      
   end
