@@ -53,13 +53,17 @@
                     </ul>
                 </div> </div>
                <div class="col-md-6">
-           
-                <div class=" panel panel-default">
-                  
+                 
+               <%unless @budges.nil?%>
+                  <%@all_budges.each do |all_budge|%>
+                  <%= image_tag("/#{all_budge.budge_name}.png",class: "budge_img") %>
+
+             <%end%>
+                  <%end%>
                      
                                         
                   
-                </div>
+                
                 <div class="col-md-6"></div>
                 <div class="col-md-6"></div>
             
