@@ -15,11 +15,16 @@ class OutputsController < ApplicationController
      #raise.params.inspect
     if @outputs.save
        flash[:success]="投稿を作成しました"
+       
     if Output.where(user_id: @current_user.id).count==1 
       flash[:info] = "初記帳ありがとうございます。[初記帳]バッジを獲得しました"
+     
       Usersbudge.create(user_id: @current_user.id,budge_id: 1)
-      
-    end
+     end 
+      if  Output.where(user_id: @current_user.id).where.not(memo: "").count ==1
+           flash[:info] = "初めてのメモ記入ありがとうございます。[初めてのメモ]バッジを獲得しました"
+      Usersbudge.create(user_id: @current_user.id,budge_id: 2)
+       end
        redirect_to "/outputs/index/#{@outputs.date}"
        
     else 
@@ -65,11 +70,15 @@ class OutputsController < ApplicationController
       def destroy
     @outputs=Output.find_by(id: params[:id]) 
     if @outputs_d= Output.where(user_id: @current_user.id).count==1 
-      @budges =  Usersbudge.find_by(user_id: @current_user.id,budge_id: 1)
+      @budges =  Usersbudge.find_by(user_id: @current_user.id,budge_id: 1)#初記帳バッジ削除
       @budges.destroy
+   end
+    
+    if @outputs.destroy #ここで削除
+    if Output.where(user_id: @current_user.id).where.not(memo: "").count ==0
+      @budges =  Usersbudge.find_by(user_id: @current_user.id,budge_id: 2)#メモバッジ削除
+      @budges.destroy  
     end
-    if @outputs.destroy
-      
       redirect_to("/outputs")
       flash[:success]="投稿を削除しました"
     

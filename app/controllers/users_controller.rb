@@ -50,9 +50,9 @@ class UsersController < ApplicationController
     @users = User.find_by(id: params[:id])
     @outputs = Output.new
      #@with_sum = Output.group(:user_id).sum(:withdrawal)  
-    @budges = Usersbudge.find_by(user_id: @current_user.id) 
+    @budges = Usersbudge.where(user_id: @current_user.id) 
     unless @budges.nil?
-    @all_budges = Budge.where(id: @budges.budge_id)
+    @all_budges =Budge.joins(:usersbudges)
   end
   end
   
