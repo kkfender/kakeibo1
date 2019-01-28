@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   
     def index
     @users = User.all
+   
+    
   end
   def login
       @users = User.find_by(email: params[:session][:email].downcase)
@@ -48,6 +50,7 @@ class UsersController < ApplicationController
     @users = User.find_by(id: params[:id])
     @outputs = Output.new
      #@with_sum = Output.group(:user_id).sum(:withdrawal)  
+   
   end
   
    def update
