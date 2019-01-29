@@ -55,7 +55,7 @@
                <div class="col-md-6">
                  <div class=" panel panel-default">
                    <h1>獲得バッジ</h1>
-               <%unless @budges.nil?%>
+               <%unless @all_budges.nil?%>
                   <%@all_budges.each do |all_budge|%>
                   <%= image_tag("/#{all_budge.budge_name}.png",class: "budge_img") %>
 

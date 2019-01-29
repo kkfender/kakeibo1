@@ -51,9 +51,12 @@ class UsersController < ApplicationController
     @outputs = Output.new
      #@with_sum = Output.group(:user_id).sum(:withdrawal)  
     @budges = Usersbudge.where(user_id: @current_user.id) 
+    
     unless @budges.nil?
-    @all_budges =Budge.joins(:usersbudges)
-  end
+      @budges.each do |b|
+        @all_budges= Budge.where(id: b.budge_id)
+      end
+    end
   end
   
    def update

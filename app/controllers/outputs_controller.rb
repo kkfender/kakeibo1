@@ -21,7 +21,9 @@ class OutputsController < ApplicationController
      
       Usersbudge.create(user_id: @current_user.id,budge_id: 1)
      end 
-      if  Output.where(user_id: @current_user.id).where.not(memo: "").count ==1
+     
+      if  Output.where(user_id: @current_user.id).where.not(memo: "").count ==1 && @memo_flag==nil
+          @memo_flag=1
            flash[:info] = "初めてのメモ記入ありがとうございます。[初めてのメモ]バッジを獲得しました"
       Usersbudge.create(user_id: @current_user.id,budge_id: 2)
        end
@@ -69,21 +71,22 @@ class OutputsController < ApplicationController
   end
       def destroy
     @outputs=Output.find_by(id: params[:id]) 
+     
     if @outputs_d= Output.where(user_id: @current_user.id).count==1 
       @budges =  Usersbudge.find_by(user_id: @current_user.id,budge_id: 1)#初記帳バッジ削除
       @budges.destroy
    end
     
-    if @outputs.destroy #ここで削除
+      @outputs.destroy    unless @outputs.nil?        #ここで削除
     if Output.where(user_id: @current_user.id).where.not(memo: "").count ==0
       @budges =  Usersbudge.find_by(user_id: @current_user.id,budge_id: 2)#メモバッジ削除
-      @budges.destroy  
+      @budges.destroy  unless @budges.nil?
     end
       redirect_to("/outputs")
       flash[:success]="投稿を削除しました"
     
     end
-  end 
+ 
   
     
  
