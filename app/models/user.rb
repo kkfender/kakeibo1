@@ -5,7 +5,8 @@ class User < ApplicationRecord
    validates :name,presence: true, length: { maximum: 8 }
   has_many :usersbudges ,dependent: :destroy
   has_many :outputs ,dependent: :destroy
-  has_many :buges, through: :usersbudges
+  has_many :budges, through: :usersbudges
+  accepts_nested_attributes_for :usersbudges
 
 
 

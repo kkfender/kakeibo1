@@ -18,21 +18,20 @@ class OutputsController < ApplicationController
        
     if Output.where(user_id: @current_user.id).count==1 
       flash[:info] = "初記帳ありがとうございます。[初記帳]バッジを獲得しました"
-     
       Usersbudge.create(user_id: @current_user.id,budge_id: 1)
-     end 
+    end 
      
       if  Output.where(user_id: @current_user.id).where.not(memo: "").count ==1 && @memo_flag==nil
-          @memo_flag=1
-           flash[:info] = "初めてのメモ記入ありがとうございます。[初めてのメモ]バッジを獲得しました"
-      Usersbudge.create(user_id: @current_user.id,budge_id: 2)
-       end
-       redirect_to "/outputs/index/#{@outputs.date}"
-       
+        @memo_flag=1
+        flash[:info] = "初めてのメモ記入ありがとうございます。[初めてのメモ]バッジを獲得しました"
+        Usersbudge.create(user_id: @current_user.id,budge_id: 2)
+      end
+      redirect_to "/outputs/index/#{@outputs.date}"
+      
     else 
       flash[:danger]="記帳に失敗しました"
       @error_message="出金額又は入金額は必ず入力してください"
-       render("outputs/new")   
+      render("outputs/new")   
     end
   end
    def index
@@ -69,13 +68,13 @@ class OutputsController < ApplicationController
       render("outputs/edit")   
     end
   end
-      def destroy
+  def destroy
     @outputs=Output.find_by(id: params[:id]) 
      
     if @outputs_d= Output.where(user_id: @current_user.id).count==1 
       @budges =  Usersbudge.find_by(user_id: @current_user.id,budge_id: 1)#初記帳バッジ削除
       @budges.destroy
-   end
+    end
     
       @outputs.destroy    unless @outputs.nil?        #ここで削除
     if Output.where(user_id: @current_user.id).where.not(memo: "").count ==0
@@ -85,12 +84,9 @@ class OutputsController < ApplicationController
       redirect_to("/outputs")
       flash[:success]="投稿を削除しました"
     
-    end
+  end
  
   
-    
- 
- 
     private
   
   def output_params
