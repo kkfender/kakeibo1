@@ -37,10 +37,6 @@
                        今月の記帳数
                      </li>
                       <li class="list-group-item">
-                        <span class="badge"><%= @users.outputs_year.count%></span>
-                       今年の記帳数
-                     </li>
-                     <li class="list-group-item">
                         <span class="badge"><%= @users.outputs_day_with.sum[1]%></span>
                        今日の出費
                      </li>
@@ -62,16 +58,21 @@
                    <%a =a+1%>
                   
                   <%end%>
-                     
+                  </div>  
                    </div>                      
-                   <%= image_tag("初記帳.png",class: "budge_img") %>
-                
-                <div class="col-md-6"></div>
+ </div>                 <div class="row">
+                <div class="col-md-6">
+                     <div class=" panel panel-default"><i class="fa fa-home"></i><i class="fa fa-home"></i>
+                        <h1>今月の費目別支出額</h1><i class="fa fa-home"></i>
+                     <%= @users.outputs_day_category unless @users.outputs_day_category.blank?%>
+                         </div>
+                </div>
                 <div class="col-md-6"></div>
             
         </div>
+        
         <div class="col-lg-4"></div>
-    </div>
+    
 </div>
  
  

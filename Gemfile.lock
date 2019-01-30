@@ -47,7 +47,7 @@ GEM
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (9.4.6)
+    autoprefixer-rails (9.4.7)
       execjs
     bcrypt (3.1.12)
     bindex (0.5.0)
@@ -85,6 +85,8 @@ GEM
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.9.25)
+    font-awesome-sass (5.6.1)
+      sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.5.3)
@@ -231,6 +233,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
   kaminari (~> 0.17.0)

@@ -52,8 +52,6 @@ class UsersController < ApplicationController
     @outputs = Output.new
      #@with_sum = Output.group(:user_id).sum(:withdrawal)  
    
-   
-    
     
   end
   

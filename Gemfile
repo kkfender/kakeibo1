@@ -5,7 +5,7 @@ ruby '2.4.1'
 
 
 gem 'momentjs-rails'
-
+ gem 'font-awesome-sass'
 gem 'bootstrap-datetimepicker-rails'
  gem 'pry-byebug'
 gem 'kaminari-bootstrap'

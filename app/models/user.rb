@@ -18,17 +18,23 @@ class User < ApplicationRecord
   
   def outputs_day
     search_date = Date.today
-    return  Output.where(user_id: self.id).where(date: search_date.in_time_zone.all_day)
+    return  Output.where(user_id: self.id,date: search_date.in_time_zone.all_day)
   end  
   
    def outputs_month
     search_date = Date.today
-    return  Output.where(user_id: self.id).where(date: search_date.in_time_zone.all_month)
+    return  Output.where(user_id: self.id,date: search_date.in_time_zone.all_month)
   end  
+  
+  def outputs_day_category
+    search_date = Date.today
+    return  Output.where(date: search_date.in_time_zone.all_month,user_id: self.id,).group(:category).sum(:withdrawal)
+  end  
+
   
    def outputs_year
     search_date = Date.today
-    return  Output.where(user_id: self.id).where(date: search_date.in_time_zone.all_year)
+    return  Output.where(date: search_date.in_time_zone.all_year)
   end  
   
   def outputs_day_with
