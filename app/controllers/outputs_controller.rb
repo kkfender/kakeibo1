@@ -55,14 +55,29 @@ class OutputsController < ApplicationController
       end
     @with_sum = Output.group(:user_id).where(date: @this_month.all_month).sum(:withdrawal)   #総出金額
   end
+  
      def edit
     @outputs=Output.find_by(id: params[:id])
+    
+  
   end
   
   def update
     @outputs=Output.find_by(id: params[:id])
+    
+     
     if  @outputs.update_attributes(output_params)
-   # raise.params.inspect
+      if  Output.where(user_id: @current_user.id).where.not(memo: "").count ==1 && 
+        @outputs.memo!=""
+       
+        flash[:info] = "初めてのメモ記入ありがとうございます。[初めてのメモ]バッジを獲得しました"
+        Usersbudge.create(user_id: @current_user.id,budge_id: 2)
+      end
+      if Output.where(user_id: @current_user.id).where.not(memo: "").count ==0
+      @budges =  Usersbudge.find_by(user_id: @current_user.id,budge_id: 2)#メモバッジ削除
+     
+      @budges.destroy  unless @budges.nil?
+    end
       flash[:success]="投稿を編集しました"
       redirect_to("/outputs")
     else
