@@ -58,7 +58,7 @@
                        <%a = 0%>
                   <%for i in @users.budges.map(&:budge_name).flatten do%>
                 
-                  <%= image_tag("/#{@users.budges.map(&:budge_name).flatten[a]}.png",class: "budge_img") %>
+                  <%= image_tag("#{@users.budges.map(&:budge_name).flatten[a]}.png",class: "budge_img") %>
                    <%a =a+1%>
                   <%end%>
                      

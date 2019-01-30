@@ -21,8 +21,8 @@ class OutputsController < ApplicationController
       Usersbudge.create(user_id: @current_user.id,budge_id: 1)
     end 
      
-      if  Output.where(user_id: @current_user.id).where.not(memo: "").count ==1 && @memo_flag==nil
-        @memo_flag=1
+      if  Output.where(user_id: @current_user.id).where.not(memo: "").count ==1 && @memo_flag== ""
+        @memo_flag="memo"
         flash[:info] = "初めてのメモ記入ありがとうございます。[初めてのメモ]バッジを獲得しました"
         Usersbudge.create(user_id: @current_user.id,budge_id: 2)
       end
@@ -79,6 +79,7 @@ class OutputsController < ApplicationController
       @outputs.destroy    unless @outputs.nil?        #ここで削除
     if Output.where(user_id: @current_user.id).where.not(memo: "").count ==0
       @budges =  Usersbudge.find_by(user_id: @current_user.id,budge_id: 2)#メモバッジ削除
+      @memo_flag=""
       @budges.destroy  unless @budges.nil?
     end
       redirect_to("/outputs")
