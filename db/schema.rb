@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_28_171927) do
+ActiveRecord::Schema.define(version: 2019_01_30_101139) do
 
   create_table "budges", force: :cascade do |t|
     t.string "budge_name"
@@ -27,15 +27,15 @@ ActiveRecord::Schema.define(version: 2019_01_28_171927) do
   create_table "outputs", force: :cascade do |t|
     t.date "date"
     t.integer "name_id"
-    t.integer "withdrawal"
-    t.string "category"
+    t.string "shop_name"
     t.integer "deposit"
+    t.string "category"
     t.string "reason"
     t.string "memo"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "shop_name"
+    t.integer "withdrawal"
   end
 
   create_table "users", force: :cascade do |t|
