@@ -17,7 +17,9 @@
 
   
       今日の使える額
-       <h1><%=@users.monthly_budget==0?"月収入を入力してください":"#{(@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings)/(last_day-today).to_i}円"%>
+       <h1><%=@users.monthly_budget==0?"月収入を入力してください":
+       (last_day-today).to_i>=1?"#{(@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings)/(last_day-today).to_i}円}":
+       (@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings)%>
       </div>
   
 
