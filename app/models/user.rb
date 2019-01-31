@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :outputs ,dependent: :destroy
   has_many :budges, through: :usersbudges
   accepts_nested_attributes_for :usersbudges
+  
+  mount_uploader :thumbnail, ThumbnailUploader
 
 
 

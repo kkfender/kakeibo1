@@ -6,6 +6,7 @@ CarrierWave.configure do |config|
   aws_access_key_id: 'AKIAIKMJ3JFEXXYCJHRA',
   aws_secret_access_key: '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',
   region: 'ap-northeast-1'
+  
   }
   
   
@@ -15,5 +16,6 @@ CarrierWave.configure do |config|
   config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" }
   config.asset_host = "https://s3.ap-northeast-1.amazonaws.com/rails-am05kk"
 config.storage :fog
+
 end
 end

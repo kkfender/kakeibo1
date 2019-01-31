@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.1'
-
+gem 'sprockets-rails'
 gem 'fog-aws'
 gem 'carrierwave'
 gem 'momentjs-rails'
