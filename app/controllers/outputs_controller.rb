@@ -54,6 +54,7 @@ class OutputsController < ApplicationController
 
       end
     @with_sum = Output.group(:user_id).where(date: @this_month.all_month).sum(:withdrawal)   #総出金額
+     @depo_sum = Output.group(:user_id).where(date: @this_month.all_month).sum(:deposit)
   end
   
      def edit

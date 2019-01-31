@@ -9,6 +9,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :usersbudges
   
   mount_uploader :thumbnail, ThumbnailUploader
+   mount_uploader :background, BackgroundUploader
 
 
 

@@ -1,0 +1,40 @@
+current directory: /home/ec2-user/environment/kakeibo1/vendor/bundle/ruby/2.4.0/gems/bootsnap-1.3.2/ext/bootsnap
+/usr/local/rvm/rubies/ruby-2.4.1/bin/ruby -r ./siteconf20190131-24188-1fge2wh.rb extconf.rb
+creating Makefile
+
+current directory: /home/ec2-user/environment/kakeibo1/vendor/bundle/ruby/2.4.0/gems/bootsnap-1.3.2/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /home/ec2-user/environment/kakeibo1/vendor/bundle/ruby/2.4.0/gems/bootsnap-1.3.2/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+bootsnap.c: In function ‘get_ruby_platform’:
+bootsnap.c:214:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+   struct utsname utsname;
+   ^
+bootsnap.c: In function ‘bs_cache_path’:
+bootsnap.c:240:3: warning: format ‘%llx’ expects argument of type ‘long long unsigned int’, but argument 5 has type ‘uint64_t’ [-Wformat=]
+   sprintf(*cache_path, "%s/%02x/%014llx", cachedir, first_byte, remainder);
+   ^
+bootsnap.c: In function ‘bs_rb_fetch’:
+bootsnap.c:281:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+   char * cachedir = RSTRING_PTR(cachedir_v);
+   ^
+bootsnap.c:623:13: warning: ‘output_data’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     else if (!NIL_P(output_data))             goto succeed; /* fast-path, goal */
+             ^
+bootsnap.c:594:9: note: ‘output_data’ was declared here
+   VALUE output_data;  /* return data, e.g. ruby hash or loaded iseq */
+         ^
+bootsnap.c: At top level:
+cc1: warning: unrecognized command line option "-Wno-self-assign" [enabled by default]
+cc1: warning: unrecognized command line option "-Wno-constant-logical-operand" [enabled by default]
+cc1: warning: unrecognized command line option "-Wno-parentheses-equality" [enabled by default]
+cc1: warning: unrecognized command line option "-Wno-tautological-compare" [enabled by default]
+linking shared-object bootsnap/bootsnap.so
+bootsnap.o: In function `atomic_write_cache_file':
+/home/ec2-user/environment/kakeibo1/vendor/bundle/ruby/2.4.0/gems/bootsnap-1.3.2/ext/bootsnap/bootsnap.c:479: warning: the use of `mktemp' is dangerous, better use `mkstemp'
+
+current directory: /home/ec2-user/environment/kakeibo1/vendor/bundle/ruby/2.4.0/gems/bootsnap-1.3.2/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20190131-24188-t7i9o8/bootsnap

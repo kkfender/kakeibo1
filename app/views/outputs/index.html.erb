@@ -21,7 +21,7 @@
 </div> 
             
         <br>   
-  <table class="table table-borderd table-striped table-hover">
+  <table class="table table-borderd table-striped table-hover primary">
     <tr><th>出金日</th><th>店名</th><th>品目</th><th>出金額</th><th>入金額</th><th>メモ</th><th>編集</th></tr>
  
   <% @outputs.each do |output| %>
@@ -38,5 +38,18 @@
     
   </table>
   </div>
-  
+   <div class="row">
+        <div class="col-md-8">
+  </div>
+  <div class="col-md-4">
+     <table class="table table-borderd  primary"> 
+      <tr><th>支出額</th><th class="text-danger"><%=(@with_sum[@users.id].to_i*-1).to_s(:delimited)%></th></tr>
+       <tr><th>収入額</th><th class="text-primary"><%=(@depo_sum[@users.id].to_i).to_s(:delimited)%></th></tr>
+       
+      <tr><th>合計</th><%if (@with_sum[@users.id].to_i*-1)+(@depo_sum[@users.id].to_i)>=0%>
+      <th class="text-primary"><%=((@with_sum[@users.id].to_i*-1)+(@depo_sum[@users.id].to_i)).to_s(:delimited)%></th></tr>
+      <%else%>
+       <th class="text-danger"><%=((@with_sum[@users.id].to_i*-1)+(@depo_sum[@users.id].to_i)).to_s(:delimited)%></th></tr>
+      <%end%>
+      </table></div>
   <%= paginate @outputs %>

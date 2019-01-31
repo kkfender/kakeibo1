@@ -20,13 +20,9 @@
 	   <%= f.number_field :monthly_savings,class:"form-control" %><br><br>
 	 サムネイル <span class="label label-primary",>任意項目</span>
     <%= f.file_field :thumbnail,class:"form-control",placeholder:"サムネイル画像"%><br/>
-   
-	  <div class="field"><br>
-                <div class ="before-user-image">
-                  <%#= image_tag @users.img.url, id: :img_prev if @users.img? %><br>
-                </div>
-                  <%#= f.check_box :remove_img %>画像を削除する<br><br>
-                  <%#= f.file_field :img, id: :users_img %><br><br>
+    背景画像 <span class="label label-primary",>任意項目</span>
+    <%= f.file_field :background,class:"form-control",placeholder:"背景画像"%><br/>
+	 
 
               </div>
 	 
