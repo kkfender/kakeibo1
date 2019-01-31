@@ -63,8 +63,17 @@
                    <h2>獲得バッジ</h2>
                        <%a = 0%>
                   <%for i in @users.budges.map(&:budge_name).flatten do%>
-                
-                  <%= image_tag("#{@users.budges.map(&:budge_name).flatten[a]}.png",class: "budge_img") %>
+                  <% if a==0%>
+                <span data-toggle="tooltip" data-placement="bottom" title="初記帳">
+                  <%= image_tag("#{@users.budges.map(&:budge_name)
+                  .flatten[a]}.png",class: "budge_img") %>
+                  </span>
+                   <% else%>
+                <span data-toggle="tooltip" data-placement="bottom" title="初めてメモを使った方に送られます">
+                  <%= image_tag("#{@users.budges.map(&:budge_name)
+                  .flatten[a]}.png",class: "budge_img") %>
+                  </span>
+                  <%end%>
                    <%a =a+1%>
                   
                   <%end%>
