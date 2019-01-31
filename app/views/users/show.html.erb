@@ -1,36 +1,41 @@
 <br><div class="container">
    <div class="row">
-     <div class="col-md-6 border panel panel-default">
-        
-  <h2><%=@users.name%>さんのメインページ</h2>
-  <%=image_tag @users.thumbnail.url if @users.thumbnail? %>
+     <div class="col-md-6">
+  <div class=" panel panel-default">
+ 
+  <div class="background-image center-block"style="background-image: url(<%=@users.thumbnail.url%>)">
    <%=link_to "記帳",new_output_path,class:"btn btn-warning"%>
     </div>
-     <div class="col-md-6 panel panel-default">
-       <h2 class="label label-info"><%=Date.today.strftime("%-m月")%>の貯金目標</h3>
+     </div>
+     <div class="col-md-2">
+       <div class=" panel panel-default ">
+        <h2 class="text-center"><%= Date.today.strftime("%-m月")%></h2>
+          <ul class="list-group">
+       <p class="label label-info"><%=Date.today.strftime("%-m月")%>の貯金目標</p>
       <h3><%=@users.monthly_savings==0?"目標貯金額を入力してください":
-      "#{@users.monthly_savings.to_s(:delimited)}" %></h3>      
-       <h2 class="label label-info">今月の使える額</h2>
+      "¥#{@users.monthly_savings.to_s(:delimited)}" %></h3>      
+       <p class="label label-info">今月の使える額</p>
       <h3><%=@users.monthly_budget==0?"月収入を入力してください":
       "#{(@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings)
-      .to_s(:delimited)}"%></h2>  
+      .to_s(:delimited)}"%></h3>  
       
      <%  today = Date.today%>
   <% last_day = Date.new(today.year, today.month, -1)%>
 
-        <h3 class="label label-info">今日の使える額</h3>
+        <p class="label label-info">今日の使える額</p>
        <h3><%=@users.monthly_budget==0?"月収入を入力してください":
        (last_day-today).to_i>=1?
        "#{((@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings)/(last_day-today)
        .to_i).to_s(:delimited)}":
        (@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings).to_s(:delimited)%>
        </h3>
+       </ul>
       </div>
-  </div>
+  </div></div>
 
     
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-2">
            
                 <div class=" panel panel-default">
                    <h2><%= Date.today.strftime("%-m月")%></h2>
@@ -61,7 +66,7 @@
                        <%a = 0%>
                   <%for i in @users.budges.map(&:budge_name).flatten do%>
                   <% if a==0%>
-                <span data-toggle="tooltip" data-placement="bottom" title="初記帳">
+                <span data-toggle="tooltip" data-placement="bottom" title="初めての記帳に対して贈られます">
                   <%= image_tag("#{@users.budges.map(&:budge_name)
                   .flatten[a]}.png",class: "budge_img") %>
                   </span>

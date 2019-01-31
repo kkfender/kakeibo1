@@ -7,7 +7,7 @@
 <% if @error_message%>
         <p class="errors"><%= @error_message %></p>
       <% end %>
-       <%=f.label :date,"収入日",class:"col-sm-2 control-label text-right date "%>
+       <%=f.label :date,"収入日",class:"col-sm-2 control-label text-right date datepicker"%>
        <div class="col-sm-10">
        <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"),class:"form-control" %>
        </div>
