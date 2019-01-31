@@ -7,7 +7,7 @@
  <%#="今月の出費#{@with_sum[@users.id]}円"%>
  <%#="今月の入金#{@depo_sum[@users.id]}円"%>
 
-
+ <h2 class="text-right"><%="支出額#{@with_sum[@users.id]}円"%></h2>
   <div class="btn-group btn-group-justified"role="group">
   <div class="btn btn-default "><%=link_to "#{@this_month.last_month.strftime("%Y年%m月")}",
   "/outputs/index/#{@this_month.last_month}",role:"button"%>
@@ -20,7 +20,7 @@
    
 </div> 
             
-            <h1 class="text-right"><%="出金額#{@with_sum[@users.id]}円"%></h1>
+        <br>   
   <table class="table table-borderd table-striped table-hover">
     <tr><th>出金日</th><th>店名</th><th>品目</th><th>出金額</th><th>入金額</th><th>メモ</th><th>編集</th></tr>
  
@@ -28,7 +28,8 @@
   <%if output.user_id==@users.id &&%> 
   <tr>
   <td><%=output.date%></td><td><%=output.shop_name%></td><td>
-    <%=output.category%></td><td><%=output.withdrawal%></td><td><%=output.deposit%></td>
+    <%=output.category%></td><td><%=output.withdrawal.to_s(:delimited) unless output.withdrawal.nil?
+%></td><td><%=output.deposit.to_s(:delimited) unless output.deposit.nil?%></td>
     <td><%=output.memo%></td>
     <td><%=link_to '編集',"/outputs/#{output.id}/edit"%></td>
   </tr>
