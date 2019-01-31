@@ -1,40 +1,30 @@
-<div class="new-main">
-  <div class="resister-area">
-    <div class="inner-area">
-      <p>新規ユーザー登録</p>
-        <%@users.errors.full_messages.each do |message|%>
-          <p class="errors"><%=message%></p>
-        <%end%>
-          <div class="input-area">
+ <div class = "container">
+	<div class="wrapper">
+	<div class="form-signin"> 
+	 <h3 class="form-signin-heading">新規ユーザー登録</h3>
+
+      <% if @error_message%>
+        <p class="errors"><%= @error_message %></p>
+      <% end %>
+		<%= form_for @users, url: users_path do |f| %>
+		 <%= f.hidden_field :monthly_budget, :value => 0%>
+     <%= f.hidden_field :monthly_savings, :value => 0%>
+      名前 <span class="label label-danger",>必須項目</span>
+		   <%= f.text_field :name ,class:"form-control",placeholder:"名前を入力"%><br/>
+		   メールアドレス <span class="label label-danger",>必須項目</span>
+	  <%= f.text_field :email,class:"form-control",placeholder:"メールアドレス" %><br/>
+	  パスワード <span class="label label-danger",>必須項目</span>
+    <%= f.password_field :password,class:"form-control",placeholder:"パスワードを8文字以上で入力" %>
+    パスワード再確認 <span class="label label-danger",>必須項目</span>
+    <%= f.password_field :password_confirmation,class:"form-control",placeholder:"パスワードを再入力"%><br/>
+         <%= f.submit "新規登録",class:"btn btn-primary form-control" %><br/>
+		   <%end%>
+			   </div>
+      </div>
+    </div>
+  
+    
+        
+         
            
-            <%= form_for @users, url: users_path do |f| %>
-            <%= f.hidden_field :monthly_budget, :value => 0%>
-            <%= f.hidden_field :monthly_savings, :value => 0%>
-           名前<span class="label label-danger">必須項目</span>
-          <%= f.text_field :name ,class:"form-control",placeholder:"名前を入力"%><br/>
-          メールアドレス <span class="label label-danger",>必須項目</span>
-          <%= f.text_field :email ,class:"form-control",placeholder:"メールアドレスを入力"%><br />
-          <div class="row">
-            <div class="form-group has-feedback col-sm-6">
-          パスワード<span class="label label-danger">必須項目</span>
-          
-          <%= f.password_field :password,class:"form-control",placeholder:"パスワードを8文字以上で入力" %><br />
-          
-            </div>
-             <div class="form-group has-feedback col-sm-6">
-          パスワード確認<span class="label label-danger">必須項目</span>
-          <%= f.password_field :password_confirmation,class:"form-control",placeholder:"パスワードを再入力"%><br/>
-           <div class="help-block with-errors"></div>
-            </div>
-          </div>
-           サムネイル画像<br/>
-         
-         
-             <%= f.file_field :img ,class:"custom-file-input"%><br/><br/>
-       
-          <%= f.submit "新規登録",class:"btn btn-primary" %><br/>
-          </div>
-            <% end %>
-  </div>
-</div>
-</div>
+     

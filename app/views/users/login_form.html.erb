@@ -16,7 +16,9 @@
         <p class="errors"><%= @error_message %></p>
       <% end %>
 		 <%= form_for :session, url: login_path do |f| %>
+		 メールアドレス 
 		  <%= f.text_field :email,class:"form-control",placeholder:"メールアドレス" %><br />
+		  パスワード
 		   <%= f.password_field :password,class:"form-control",placeholder:"パスワード" %><br/>
 		   
         <%= f.submit "ログイン",class:"btn btn-lg btn-primary btn-block" %><br/>
