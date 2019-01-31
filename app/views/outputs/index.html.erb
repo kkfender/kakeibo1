@@ -2,19 +2,23 @@
   
 
 <div class="center-block">
-  <%=@users.name+"さん"%><br>
+ 
   <%#="月の予算#{@users.monthly_budget}円"%>
  <%#="今月の出費#{@with_sum[@users.id]}円"%>
  <%#="今月の入金#{@depo_sum[@users.id]}円"%>
- <%=@today.strftime("%Y年%m月%d日")%>
 
-  <%=link_to "#{@this_month.last_month.strftime("%Y年%m月")}","/outputs/index/#{@this_month.last_month}"%>
-  
-   <%=@this_month.strftime("%m月")%>
-   
 
+  <div class="btn-group btn-group-justified"role="group">
+  <div class="btn btn-default "><%=link_to "#{@this_month.last_month.strftime("%Y年%m月")}",
+  "/outputs/index/#{@this_month.last_month}",role:"button"%>
+  </div>
+   <div class="btn btn-default"><%=@this_month.strftime("%m月")%></div>
    
-            <%=link_to "#{@this_month.next_month.strftime("%Y年%m月")}","/outputs/index/#{ @this_month.next_month}"%>
+    <div class="btn btn-default"><%=link_to "#{@this_month.next_month.strftime("%Y年%m月")}",
+    "/outputs/index/#{ @this_month.next_month}",role:"button"%>
+   </div>
+   
+</div> 
             
             <h1 class="text-right"><%="出金額#{@with_sum[@users.id]}円"%></h1>
   <table class="table table-borderd table-striped table-hover">
