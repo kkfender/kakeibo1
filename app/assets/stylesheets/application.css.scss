@@ -169,4 +169,22 @@ width:550px;
   margin-left:450px;
 }
 #p {font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
+margin:0 ;
+  
+}
+ a {
+text-decoration: none;
+display: block;
+}
+
+.kichou {
+  background-color:orange;
+  color:white;
+}
+.delete {
+  color:green;
+}
+.edit {
+ 
+  color:green;
 }

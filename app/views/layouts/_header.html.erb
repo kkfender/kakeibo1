@@ -4,12 +4,18 @@
         <%@current_user=User.find_by(id: session[:user_id])%>
                <%if @current_user%>       <!--ログイン状態で表示-->
        
-        <li><%= link_to "HOME","/",class:"button "%></li>
+        <li><%= link_to "/" do %>
+  <%= image_tag "kakeibologo.png",class: "logo" %>
+  
+<% end %></li>
         <li><%= link_to "About","/about",class:"button"%></li>
         <li><a href="#contact">Contact</a></li>
-         <li><%=link_to "記帳する",new_output_path,class:"btn btn-warning"%></li>
+        <li> <%= link_to(new_output_path,class:"btn warning")do%>
+      <p class="kichou btn"><i class="fas fa-marker kichou "> 記帳する</i></p>
+       <%end%>
+        </li>
+         
         </ul>
-       
         
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
@@ -28,7 +34,7 @@
             <%else%> <!--非ログイン状態で表示-->
             <ul class="nav navbar-nav mr-auto"> 
           
-             <li><%= link_to "", target: "_blank" do %>
+             <li><%= link_to "/" do %>
   <%= image_tag "kakeibologo.png",class: "logo" %>
   
 <% end %></li>
