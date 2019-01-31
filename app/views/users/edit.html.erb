@@ -1,45 +1,47 @@
+ <div class = "container">
+	<div class="wrapper">
+	<div class="form-signin"> 
+	 <h3 class="form-signin-heading">アカウント編集</h3>
 
-      <h1>アカウント編集</h1>
-        <% @users.errors.full_messages.each do |message| %>
-         <p class="errors">
-           <%= message %>
-         </p>
-        <% end %>
-          <%= form_for @users ,url: user_path,class:"edit-image"  do |f| %>
-            <p class="standard-font">ユーザー名</p>
-            <%= f.text_field :name %><br>
-            
-            <p class="standard-font">メールアドレス</p>
-            <%= f.email_field :email %><br>
-            <p class="standard-font">月予算</p>
-            <%= f.number_field :monthly_budget %><br><br>
-            <p class="standard-font">月の貯金目標</p>
-            <%= f.number_field :monthly_savings %><br><br>
-              <div class="field"><br>
+      <% if @error_message%>
+        <p class="errors"><%= @error_message %></p>
+      <% end %>
+		<%= form_for @users,url: user_path do |f| %>
+		 <%= f.hidden_field :monthly_budget, :value => 0%>
+     <%= f.hidden_field :monthly_savings, :value => 0%>
+      名前 <span class="label label-danger",>必須項目</span>
+		   <%= f.text_field :name ,class:"form-control",placeholder:"名前を入力"%><br/>
+		   メールアドレス <span class="label label-danger",>必須項目</span>
+	  <%= f.text_field :email,class:"form-control",placeholder:"メールアドレス" %><br/>
+	  月の収入 <span class="label label-primary",>任意項目</span>
+	   <%= f.number_field :monthly_budget,class:"form-control" %><br>
+	     月の貯金目標 <span class="label label-primary",>任意項目</span>
+	   <%= f.number_field :monthly_savings,class:"form-control" %><br><br>
+	 
+	  <div class="field"><br>
                 <div class ="before-user-image">
                   <%#= image_tag @users.img.url, id: :img_prev if @users.img? %><br>
                 </div>
                   <%#= f.check_box :remove_img %>画像を削除する<br><br>
                   <%#= f.file_field :img, id: :users_img %><br><br>
-<script type="text/javascript">
-$(function() {
- function readURL(input) {
-   if (input.files && input.files[0]) {
-     var reader = new FileReader();
-     reader.onload = function (e) {
-       $('#img_prev').attr('src', e.target.result);
-     }
-     reader.readAsDataURL(input.files[0]);
-   }
- }
- $("#users_img").change(function(){
-   readURL(this);
- });
-});
-</script>
+
               </div>
+	 
+	 
+         <%= f.submit "保存",class:"btn btn-primary form-control" %><br/>
+		   <%end%>
+			   </div>
+      </div>
+    </div>
   
-    <%= f.submit "保存", class: "button" %><br>
-    <% end %>
-        <%= link_to "退会",user_path(@users.id), method: :delete, data: {confirm: "本当に退会しますか？"} %>
+
+
+         
+            
+          
+          
+             
+  
+   
+        <%= link_to "退会",user_path(@users.id), method: :delete, data: {confirm: "本当に退会しますか？",class:"button"} %>
 
