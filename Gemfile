@@ -3,7 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.1'
 
-
+gem 'fog-aws'
+gem 'carrierwave'
 gem 'momentjs-rails'
  gem 'font-awesome-sass'
 gem 'bootstrap-datetimepicker-rails'

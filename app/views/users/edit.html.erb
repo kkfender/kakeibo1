@@ -13,11 +13,14 @@
 		   <%= f.text_field :name ,class:"form-control",placeholder:"名前を入力"%><br/>
 		   メールアドレス <span class="label label-danger",>必須項目</span>
 	  <%= f.text_field :email,class:"form-control",placeholder:"メールアドレス" %><br/>
+	     
 	  月の収入 <span class="label label-primary",>任意項目</span>
 	   <%= f.number_field :monthly_budget,class:"form-control" %><br>
 	     月の貯金目標 <span class="label label-primary",>任意項目</span>
 	   <%= f.number_field :monthly_savings,class:"form-control" %><br><br>
-	 
+	 サムネイル <span class="label label-primary",>任意項目</span>
+    <%= f.file_field :thumbnail,class:"form-control",placeholder:"サムネイル画像"%><br/>
+   
 	  <div class="field"><br>
                 <div class ="before-user-image">
                   <%#= image_tag @users.img.url, id: :img_prev if @users.img? %><br>

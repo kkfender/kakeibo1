@@ -58,7 +58,9 @@ class UsersController < ApplicationController
    def update
      #raise.params.inspect
     @users = User.find_by(id: params[:id])
+   
     if  @users.update_attributes(user_params)
+       
       flash[:success] = "ユーザー情報を編集しました"
       redirect_to user_path(@users)
     else
@@ -88,7 +90,7 @@ class UsersController < ApplicationController
   def user_params
       params.require(:user).permit(
       :name, :email, :password, 
-      :password_confirmation,:monthly_budget,:monthly_savings)
+      :password_confirmation,:monthly_budget,:monthly_savings,thumbnail:[])
   end
    
    

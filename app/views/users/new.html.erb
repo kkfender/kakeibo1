@@ -17,6 +17,8 @@
     <%= f.password_field :password,class:"form-control",placeholder:"パスワードを8文字以上で入力" %>
     パスワード再確認 <span class="label label-danger",>必須項目</span>
     <%= f.password_field :password_confirmation,class:"form-control",placeholder:"パスワードを再入力"%><br/>
+     サムネイル <span class="label label-primary",>任意項目</span>
+    <%= f.file_field :thumbnail,class:"form-control",placeholder:"サムネイル画像"%><br/>
          <%= f.submit "新規登録",class:"btn btn-primary form-control" %><br/>
 		   <%end%>
 			   </div>
