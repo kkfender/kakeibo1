@@ -159,8 +159,8 @@ input[name="tab_item"] {
   height:200px;
 }
 .background-image {
-width:550px;
-  height:250px;
+width:750px;
+  height:350px;
 }
 .img-thumbnail {
   width:100px;
@@ -168,7 +168,7 @@ width:550px;
   margin-top:150px;
   margin-left:450px;
 }
-#p {font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
+h3 {font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
 margin:0 ;
   
 }
@@ -187,4 +187,32 @@ display: block;
 .edit {
  
   color:green;
+}
+h3:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c";
+  font-weight: 900;
+  padding-right: 5px;
+  color: #f89174;/*アイコンの色*/
+}
+h3 {
+  font-size:18px;
+}
+h2.month {
+  font-size:22px;
+  font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
+  margin:10px 10px ;
+
+}
+
+.btn-circle {
+width: 30px;
+height: 30px;
+padding: 10px 16px;
+font-size: 18px;
+line-height: 1.33;
+border-radius: 25px;
+}
+.number {
+  font-weight:medium;
 }

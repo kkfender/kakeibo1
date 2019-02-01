@@ -1,13 +1,46 @@
 <br><div class="container">
+ <div class="row">
+  <div class="alert alert-danger">
+   基本設定を登録して見ましょう
+  </div>
    <div class="row">
-     <div class="col-md-6">
+     <div class="col-md-8">
   <div class=" panel panel-default">
   
-  <div class=" background-image img-responsive center-block"style="background-image: url(<%=@users.background.url%>)">
-   <%=image_tag(@users.thumbnail.url,class: "img-thumbnail")%>
+  <div class=" background-image img-responsive center-block"style="background-image:
+  url(<%=@users.background.url  unless @users.background.url.nil?%>)">
+   <%=image_tag(@users.thumbnail.url,class: "img-thumbnail ")unless @users.thumbnail.url.nil?%>
     </div>
      </div>
-     <div class="col-md-2">
+ </div>
+ <div class="col-md-4">
+           
+                <div class=" panel ">
+                   <h2 class="month text-center bg-success"><i class="fa fa-calendar fa-fw"></i><%= Date.today.strftime("%-m月%-d日")%></h2>
+                   <ul class="list-group">
+                     <li class="list-group-item">
+                     
+                       <h3>今日の記帳数   <div class=" number pull-right text-success "><%= @users.outputs_day.count%>回</div></h3>
+                     </li>
+                      <li class="list-group-item">
+                         
+                       <h3>今月の記帳数 <div class=" number pull-right text-success"><%= @users.outputs_month.count%>回</div></h3>
+                     </li>
+                      <li class="list-group-item">
+                       
+                       <h3>今日の支出 <div class=" number pull-right text-danger "><%= @users.outputs_day_with.sum[1]%></div></h3>
+                     </li>
+                     <li class="list-group-item">
+                        <h3>今月の支出<div class=" number pull-right text-danger "><%= @users.outputs_month_with.sum[1]%></div></h3>
+                      
+                     </li>
+                     
+                                        
+                    </ul>
+                </div> </div> </div>
+ <div class="row">
+     <div class="col-md-4">
+     
        <div class=" panel panel-default ">
         <h2 class="text-center"><%= Date.today.strftime("%-m月")%></h2>
           <ul class="list-group">
@@ -31,35 +64,11 @@
        </h3>
        </ul>
       </div>
-  </div></div>
-
+  </div>
+ 
     
-    <div class="row">
-        <div class="col-md-2">
-           
-                <div class=" panel panel-default">
-                   <h2><%= Date.today.strftime("%-m月")%></h2>
-                   <ul class="list-group">
-                     <li class="list-group-item">
-                      <span class="badge"><%= @users.outputs_day.count%></span>
-                       今日の記帳数
-                     </li>
-                      <li class="list-group-item">
-                        <span class="badge"><%= @users.outputs_month.count%></span>
-                       今月の記帳数
-                     </li>
-                      <li class="list-group-item">
-                        <span class="badge"><%= @users.outputs_day_with.sum[1]%></span>
-                       今日の出費
-                     </li>
-                     <li class="list-group-item">
-                        <span class="badge"><%= @users.outputs_month_with.sum[1]%></span>
-                       今月の出費
-                     </li>
-                     
-                                        
-                    </ul>
-                </div> </div>
+   
+       
                <div class="col-md-6">
                  <div class=" panel panel-default">
                   <table class="table table-borderd table-striped">
