@@ -50,6 +50,9 @@ class User < ApplicationRecord
     return  Output.where(user_id: self.id).where(date: search_date.in_time_zone.all_month).group(:user_id).sum(:withdrawal)
   end  
     
+    def youbi
+    youbi = %w[日 月 火 水 木 金 土]
+   end
     
    def last_day
    today = Date.today

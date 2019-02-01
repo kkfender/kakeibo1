@@ -16,7 +16,7 @@
  <div class="col-md-4">
            
                 <div class=" panel ">
-                   <h2 class="month text-center bg-success"><i class="fa fa-calendar fa-fw"></i><%= Date.today.strftime("%-m月%-d日")%></h2>
+                   <h2 class="month text-center bg-success"><i class="fa fa-calendar fa-fw"></i><%= Date.today.strftime("%-m月%-d日の状況")%></h2>
                    <ul class="list-group">
                      <li class="list-group-item">
                      
@@ -28,48 +28,66 @@
                      </li>
                       <li class="list-group-item">
                        
-                       <h3>今日の支出 <div class=" number pull-right text-danger "><%= @users.outputs_day_with.sum[1]%></div></h3>
+                       <h3>今日の支出 <div class=" number pull-right text-danger ">¥<%= @users.outputs_day_with.sum[1].to_s(:delimited)%></div></h3>
                      </li>
                      <li class="list-group-item">
-                        <h3>今月の支出<div class=" number pull-right text-danger "><%= @users.outputs_month_with.sum[1]%></div></h3>
+                        <h3>今月の支出<div class=" number pull-right text-danger ">¥<%= @users.outputs_month_with.sum[1].to_s(:delimited)%></div></h3>
                       
                      </li>
                      
                                         
                     </ul>
-                </div> </div> </div>
- <div class="row">
-     <div class="col-md-4">
-     
-       <div class=" panel panel-default ">
-        <h2 class="text-center"><%= Date.today.strftime("%-m月")%></h2>
-          <ul class="list-group">
-       <p class="label label-info"><%=Date.today.strftime("%-m月")%>の貯金目標</p>
-      <h3><%=@users.monthly_savings==0?"目標貯金額を入力してください":
-      "¥#{@users.monthly_savings.to_s(:delimited)}" %></h3>      
-       <p class="label label-info">今月の使える額</p>
-      <h3><%=@users.monthly_budget==0?"月収入を入力してください":
-      "#{(@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings)
-      .to_s(:delimited)}"%></h3>  
+                </div> 
+                <div class=" panel ">
       
+         <h2 class="month text-center bg-warning"><i class="fa fa-calendar fa-fw"></i><%= Date.today.strftime("%-m月の状況")%></h2>
+          <ul class="list-group">
+           <li class="list-group-item">
+       <h3><%=Date.today.strftime("%-m月")%>の貯金目標
+       <div class="text-primary number pull-right">
+       <%=@users.monthly_savings==0?"目標を入力しましょう":     
+      "¥#{@users.monthly_savings.to_s(:delimited)}" %></div></h3> 
+      </li>
+      <li class="list-group-item">
+       <h3><%=Date.today.strftime("%-m月")%>の使える額
+       <div class="text-primary number pull-right">
+       <%=@users.monthly_budget==0?"収入を入力しましょう":
+      "¥#{(@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings)
+      .to_s(:delimited)}"%></div></h3>
+      </li>
      <%  today = Date.today%>
   <% last_day = Date.new(today.year, today.month, -1)%>
-
-        <p class="label label-info">今日の使える額</p>
-       <h3><%=@users.monthly_budget==0?"月収入を入力してください":
+ <li class="list-group-item">
+        <h3>今日の使える額
+        <div class="text-primary number pull-right">
+       <%=@users.monthly_budget==0?"収入を入力しましょう":
        (last_day-today).to_i>=1?
-       "#{((@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings)/(last_day-today)
+       "¥#{((@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings)/(last_day-today)
        .to_i).to_s(:delimited)}":
        (@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings).to_s(:delimited)%>
-       </h3>
+       </div></h3>
+       </li>
        </ul>
       </div>
-  </div>
- 
+                </div> </div>
+
+                   </div>                      
+ </div>                 <div class="row">
+                <div class="col-md-6">
+                     <table class=" table table-borderd table-hover">
+                      
+                        <h2 class="month">今月の費目別支出額</h2>
+                        <tr><th>費目</th>
+                     </tr> <tr><th><%= @users.outputs_day_category[0] unless @users.outputs_day_category.blank?%></th><tr>
+                         </table>
+                </div>
+                <div class="col-md-6"></div>
+            
+        </div>
+        
+        <div class="col-lg-4"></div>
     
-   
-       
-               <div class="col-md-6">
+    <div class="col-md-6">
                  <div class=" panel panel-default">
                   <table class="table table-borderd table-striped">
                    <tr><th>獲得バッジ</th></tr>
@@ -93,20 +111,6 @@
                   <%end%>
                   </table>
                   </div>  
-                  
-                   </div>                      
- </div>                 <div class="row">
-                <div class="col-md-6">
-                     <div class=" panel panel-default"><i class="fa fa-home"></i><i class="fa fa-home"></i>
-                        <h3>今月の費目別支出額</h3><i class="fa fa-home"></i>
-                     <%= @users.outputs_day_category unless @users.outputs_day_category.blank?%>
-                         </div>
-                </div>
-                <div class="col-md-6"></div>
-            
-        </div>
-        
-        <div class="col-lg-4"></div>
     
 </div>
  
