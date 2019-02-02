@@ -5,6 +5,7 @@
    <%=link_to("基本設定を登録して見ましょう","/users/#{@users.id}/profile_new")%>
   </div>
   <%end%>
+   </div>
    <div class="row">
      <div class="col-md-8">
   <div class=" panel panel-default">
@@ -73,37 +74,54 @@
       </div>
       </div>
       </div>
-                   </div>                      
- </div>
+                 
  <div class="row">
- 
-               <div class="col-md-4">
+ <div class="col-md-4">
                     <div class=" panel panel-default">
-                     <h2 class="month bg-success text-center"><i class="fas fa-yen-sign">今月の費目別支出額</i></h2>
+                     <h2 class="month bg-secondary text-center"><i class="fas fa-coins">今月の項目別収入額</i></h2>
                          <table class=" table table-borderd table-hover">
-                        <tr><th>費目</th><th>支出</th><tr>
+                        <tr><th>項目</th><th>収入</th><tr>
                          <tr>
-                        <%@users.outputs_day_category.to_a.each do|cat| %>
-                        <td><%=cat[0]%></td><td class="text-danger"><%=cat[1].to_s(:delimited)%></td>
+                          
+                        <%@users.outputs_day_revenue_item.to_a.each do|cat| %>
+                        <%unless cat[1]==0%>
+                        <td><%=cat[0]%></td><td class="text-primary"><%=cat[1].to_s(:delimited)%></td>
+                        <%end%>
                          </tr>
                         <%end%>
                      </table>
                 </div>
                 </div>
+                
+                
+               <div class="col-md-4">
+                    <div class=" panel panel-default">
+                     <h2 class="month bg-success text-center"><i class="fas fa-coins "> 今月の項目別支出額</i></h2>
+                         <table class=" table table-borderd table-hover">
+                        <tr><th>項目</th><th>支出</th><tr>
+                         <tr>
+                        <%@users.outputs_day_category.to_a.each do|cat| %>
+                        <%unless cat[1]==0%>
+                        <td><%=cat[0]%></td><td class="text-danger"><%=cat[1].to_s(:delimited)%></td>
+                        <%end%>
+                         </tr>
+                        <%end%>
+                     </table>
+                </div>
+                </div>
+                
                  <div class="col-lg-4">
     <div class=" panel panel-default">
    <h2 class="total_asets text-center bg-info " ><i class="fas fa-yen-sign"> 総資産</i></h2>
    
-            <p class="asets text-center ">¥<%= (@users.total_asets-@with_all_sum[2].to_i-@depo_all_sum[2].to_i).to_s(:delimited) unless @users.total_asets.nil?%></p>
+            <p class="asets text-center ">¥<%= (@users.total_asets-@with_all_sum[@users.id].to_i+@depo_all_sum[@users.id].to_i).to_s(:delimited) unless @users.total_asets.nil?%></p>
     </div>
    </div>
-                
-                <div class="col-md-6"></div>
-            
-        </div> </div>
+ 
+        </div> 
         
-        <div class="col-lg-4"></div>
-    
+        
+     <div class="row">
     <div class="col-md-6">
                  <div class=" panel panel-default">
                   <table class="table table-borderd table-striped">
@@ -127,7 +145,7 @@
                   
                   <%end%>
                   </table>
-                  </div>  
+                  </div>                   </div>   
     
 </div>
  

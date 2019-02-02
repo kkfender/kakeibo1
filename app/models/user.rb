@@ -32,6 +32,11 @@ class User < ApplicationRecord
   def outputs_day_category
     search_date = Date.today
     return  Output.where(date: search_date.in_time_zone.all_month,user_id: self.id,).group(:category).sum(:withdrawal)
+  end   
+  
+  def outputs_day_revenue_item
+    search_date = Date.today
+    return  Output.where(date: search_date.in_time_zone.all_month,user_id: self.id,).group(:revenue_item).sum(:deposit)
   end  
 
   
