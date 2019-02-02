@@ -76,19 +76,10 @@
                    </div>                      
  </div>
  <div class="row">
-  <div class="col-lg-4">
-    <div class=" panel panel-default">
-   <h2 class="total_asets text-center bg-info " ><i class="fas fa-yen-sign"> 総資産</i></h2>
-   
-            <p class="asets text-center ">¥<%= (@users.total_asets-@with_all_sum[2].to_i-@depo_all_sum[2].to_i).to_s(:delimited) unless @users.total_asets.nil?%></p>
-    </div>
-   </div>
+ 
                <div class="col-md-4">
-               
-                     <div class=" panel panel-default">
-                    
-                      
-                        <h2 class="month bg-success text-center"><i class="fas fa-yen-sign">今月の費目別支出額</i></h2>
+                    <div class=" panel panel-default">
+                     <h2 class="month bg-success text-center"><i class="fas fa-yen-sign">今月の費目別支出額</i></h2>
                          <table class=" table table-borderd table-hover">
                         <tr><th>費目</th><th>支出</th><tr>
                          <tr>
@@ -96,10 +87,17 @@
                         <td><%=cat[0]%></td><td class="text-danger"><%=cat[1].to_s(:delimited)%></td>
                          </tr>
                         <%end%>
-                     
-                      
-                         </table>
+                     </table>
                 </div>
+                </div>
+                 <div class="col-lg-4">
+    <div class=" panel panel-default">
+   <h2 class="total_asets text-center bg-info " ><i class="fas fa-yen-sign"> 総資産</i></h2>
+   
+            <p class="asets text-center ">¥<%= (@users.total_asets-@with_all_sum[2].to_i-@depo_all_sum[2].to_i).to_s(:delimited) unless @users.total_asets.nil?%></p>
+    </div>
+   </div>
+                
                 <div class="col-md-6"></div>
             
         </div> </div>

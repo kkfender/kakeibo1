@@ -26,14 +26,14 @@
             
         <br>   
   <table class="table table-borderd table-striped table-hover primary">
-    <tr><th>記帳日</th><th>店名</th><th>品目</th><th>出金額</th><th>入金額</th><th>メモ</th><th>編集</th><th>削除</th></tr>
+    <tr><th>記帳日</th><th>店名</th><th>支出項目</th><th>収入項目</th><th>出金額</th><th>入金額</th><th>メモ</th><th>編集</th><th>削除</th></tr>
  
   <% @outputs.each do |output| %>
   <%if output.user_id==@users.id &&%> 
   <tr>
   <td><%=output.date%></td>
   <td><%=output.shop_name%></td>
-  <td><%=output.category%></td><td><%=output.withdrawal.to_s(:delimited) unless output.withdrawal.nil?%></td>
+  <td><%=output.category%></td><td><%=output.revenue_item%></td><td><%=output.withdrawal.to_s(:delimited) unless output.withdrawal.nil?%></td>
   <td><%=output.deposit.to_s(:delimited) unless output.deposit.nil?%></td>
     <td><%=output.memo%></td>
     <td>
@@ -42,7 +42,7 @@
        <%end%>
     </td>
       <td>
-         <%=link_to(output_path(@outputs), :method => :delete,data: {confirm: "本当に削除しますか？"},class:"btn pull-center delete") do%>
+         <%=link_to("/outputs/#{output.id}", :method => :delete,data: {confirm: "本当に削除しますか？"},class:"btn pull-center delete") do%>
        <i class="fas fa-trash "></i>
                  <%end%></td>
                  </td>

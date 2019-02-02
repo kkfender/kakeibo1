@@ -110,7 +110,7 @@ class OutputsController < ApplicationController
   def output_params
     
       params.require(:output).permit(
-      :shop_name,:withdrawal,:date,:category,:deposit,:memo).merge(user_id: @current_user.id)
+      :shop_name,:withdrawal,:date,:category,:deposit,:memo,:revenue_item).merge(user_id: @current_user.id)
   end
    
   
