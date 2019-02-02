@@ -1,4 +1,4 @@
-<br><div class="container">
+<br><div class="container xxx">
  <div class="row">
   <%if @users.total_asets==0 ||  @users.monthly_budget==0 ||  @users.monthly_savings==0 %>
   <div class="alert alert-danger">
@@ -125,8 +125,8 @@
     <div class="col-md-6">
                  <div class=" panel panel-default">
                   <table class="table table-borderd table-striped">
-                   <tr><th>獲得バッジ</th></tr>
-                  
+                   <tr><th><h2 class="month bg-success text-center"><i class="fas fa-award "> 獲得バッジ一覧</i></h2></th></tr>
+                   
                        <%a = 0%>
                   <%for i in @users.budges.map(&:budge_name).flatten do%>
                   <% if a==0%><tr><td>

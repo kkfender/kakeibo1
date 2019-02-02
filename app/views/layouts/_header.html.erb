@@ -9,8 +9,7 @@
   
 <% end %></li>
         <li><%= link_to "About","/about",class:"button"%></li>
-        <li><a href="#contact">Contact</a></li>
-        <li> <%= link_to(new_output_path,class:"btn warning kichoubtn")do%>
+         <li> <%= link_to(new_output_path,class:"btn warning kichoubtn")do%>
       <p class="kichou btn"><i class="fas fa-marker kichou "> 記帳する</i></p>
        <%end%>
         </li>
@@ -24,6 +23,8 @@
             
             <li><%= link_to "メインページ",user_path(@current_user),class:"button"%></li>
             <li><%= link_to "詳細ページ",outputs_path,class:"button"%></li>
+             <li><%= link_to "基本設定ページ","/users/#{@current_user.id}/profile_new",class:"button"%></li>
+            
             <li class="divider"></li>
             <li class="dropdown-header"></li>
             <li><%= link_to "アカウント編集",edit_user_path(@current_user),class:"button"%></li>
