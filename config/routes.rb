@@ -10,5 +10,7 @@ resources:outputs
   get "logout" => "users#logout"
   get "signup"=> "users#new"                   ##ユーザー登録ページ
   get  "login"=> "users#login_form"
+  patch "users/:id/profile" => "users#profile"
+  get "users/:id/profile_new" => "users#profile_new"
 resources:users
 end

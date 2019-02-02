@@ -68,6 +68,23 @@ class UsersController < ApplicationController
     end
   end
   
+   def profile_new
+     @users=User.find_by(id: params[:id])
+   end
+  
+  def profile
+     #raise.params.inspect
+    @users = User.find_by(id: params[:id])
+   
+    if  @users.update_attributes(user_params)
+       
+      flash[:success] = "基本設定を編集しました"
+      redirect_to user_path(@users)
+    else
+      render "users/profile"
+    end
+  end
+  
   def destroy 
     User.find(params[:id]).destroy
     flash[:success] = "ユーザーを削除しました"

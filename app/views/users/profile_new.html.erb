@@ -1,0 +1,33 @@
+ <div class = "container">
+	<div class="wrapper">
+	<div class="form-signin"> 
+	 <h3 class="form-signin-heading">基本設定</h3>
+
+      <% if @error_message%>
+        <p class="errors"><%= @error_message %></p>
+      <% end %>
+		<%= form_for @users,url: "/users/#{@users.id}/profile" do |f| %>
+		 <%= f.hidden_field :monthly_budget, :value => 0%>
+     <%= f.hidden_field :monthly_savings, :value => 0%>
+   
+	     
+	  月の収入 <span class="label label-primary",>任意項目</span>
+	   <%= f.number_field :monthly_budget,class:"form-control" %><br>
+	     月の貯金目標 <span class="label label-primary",>任意項目</span>
+	   <%= f.number_field :monthly_savings,class:"form-control" %><br><br>
+	 
+	 
+
+             
+	 
+	 
+         <%= f.submit "保存",class:"btn btn-primary form-control" %><br/>
+		   <%end%>
+			   </div> </div>
+      </div>
+   
+  
+
+
+         
+            
