@@ -80,7 +80,7 @@
     <div class=" panel panel-default">
    <h2 class="total_asets text-center bg-info " ><i class="fas fa-yen-sign"> 総資産</i></h2>
    
-            <p class="asets text-center ">¥<%= (@users.total_asets-@with_all_sum[2].to_i-@depo_all_sum[2].to_i).to_s(:delimited)%></p>
+            <p class="asets text-center ">¥<%= (@users.total_asets-@with_all_sum[2].to_i-@depo_all_sum[2].to_i).to_s(:delimited) unless @users.total_asets.nil?%></p>
     </div>
    </div>
                <div class="col-md-4">

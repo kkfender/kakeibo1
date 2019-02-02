@@ -1,28 +1,26 @@
 
+  <div>
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="active" role="presentation">
+      <a aria-controls="tab_a" data-toggle="tab" href="#tab_a" role="tab">支出</a>
+    </li>
+    <li role="presentation">
+      <a aria-controls="tab_b" data-toggle="tab" href="#tab_b" role="tab">収入</a>
+    </li>
+    
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab_a" role="tabpanel">
+      <p>
+        <%=render"outputs/outputwith"%>
+      </p>
+    </div>
+    <div class="tab-pane" id="tab_b" role="tabpanel">
+      <p>
+        <%=render"outputs/outputdepo"%>
+      </p>
+    </div>
+    
+  </div>
+</div>
   
-   <div class="tabs">
-              <input id="all" type="radio" name="tab_item" checked>
-              <label class="tab_item" for="all">
-              <p class="itext">     <i class="far fa-comment"></i> つぶやき </p></label>
-              <input id="programming" type="radio" name="tab_item">
-              <label class="tab_item" for="programming">
-              <p class="itext">     <i class="fas fa-users"></i> フォロー </p></label>
-              <input id="design" type="radio" name="tab_item">
-              <label class="tab_item" for="design">
-               <p class="itext">     <i class="fas fa-users"></i> フォロワー </p></label>
-              <div class="tab_content" id="all_content">
-                <div class="tab_content_description">
-                  <p class="c-txtsp"><%=render"outputs/outputwith"%><%=render"outputs/outputdepo"%></p>
-                </div>
-              </div>
-                <div class="tab_content" id="programming_content">
-                  <div class="tab_content_description">
-                    <p class="c-txtsp"><%=render"outputs/outputwith"%><%=render"outputs/outputwith"%></p>
-                  </div>
-                </div>  
-              <div class="tab_content" id="design_content">
-                <div class="tab_content_description">
-                  <p class="c-txtsp"> <%=render"outputs/outputwith"%></p>
-                </div>
-              </div>
-      </div> 

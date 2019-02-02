@@ -1,34 +1,40 @@
 <div class="container">
-    <h1 class="page-header text-center">出金</h1>
-    
- <div class="form-group">
+   
 
-<%= form_for @outputs, url: "/outputs",class:"form-horizontal" do|f|%>
-<% if @error_message%>
+      
+   <div class="wrapper">
+	<div class="form-signin"> 
+	 <h3 class="form-signin-heading">支出</h3>
+
+      <% if @error_message%>
         <p class="errors"><%= @error_message %></p>
       <% end %>
-       <%=f.label :date,"支出日",class:"col-sm-2 control-label text-right date"%>
-       <div class="col-sm-10">
-       <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"),class:"form-control" %>
-       </div>
-      
-       <%=f.label :withdrawal,"支出額",class:"control-label col-sm-2 text-right"%>
-        <div class="col-sm-10"> <%= f.number_field :withdrawal,class:"form-control" %></div>
+<%= form_for @outputs, url: "/outputs",class:"form-horizontal" do|f|%>
+  支出日<span class="label label-danger",>必須項目</span>
+  <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"),class:"form-control" %><br/>
   
-         <%=f.label :shop_name,"店名",class:"control-label col-sm-2 text-right"%>
-     
-       <div class="col-sm-10"><%= f.text_field :shop_name,class:"form-control" %></div>
-        <%= f.label :category,"費目",class:"control-label col-sm-2 text-right" %><br>
-  <div class="col-sm-10"><%= f.select :category, [["食費", "食費"], ["水道光熱費", "水道光熱費"], ["通信費", "通信費"],
+ 支出額<span class="label label-danger",>必須項目</span>
+  <%= f.number_field :withdrawal,class:"form-control" %><br/>
+
+店名<span class="label label-primary",>任意項目</span>
+    <%= f.text_field :shop_name,class:"form-control" %><br/>
+
+費目<span class="label label-danger",>必須項目</span>     
+		 <%= f.select :category, [["食費", "食費"], ["水道光熱費", "水道光熱費"], 
+  ["通信費", "通信費"],
   ["遊興費", "遊興費"], ["交通費", "交通費"], ["美容費", "美容費"], ["医療費", "医療費"],
   ["被服費", "被服費"]  , ["生活雑貨・日用品", "生活雑貨・日用品"], ["教育費", "教育費"], 
   ["交際費", "交際費"], ["住宅費", "住宅費"], ["ペット", "ペット"], ["保険", "保険"], 
-  ["社会保険", "社会保険"],  ["税金", "税金"], ["その他費用", "その他費用"]] ,{},class:"form-control" %></div>
-          <%= f.label :memo,"メモ",class:"control-label col-sm-2 text-right" %><br>
-        <div class="col-sm-10"><%= f.text_field :memo,class:"form-control" %></div>
+  ["社会保険", "社会保険"],  ["税金", "税金"], ["その他費用", "その他費用"]] ,{},class:"form-control" %>  <br/>
+	メモ<span class="label label-primary",>任意項目</span>	   
+<%= f.text_field :memo,class:"form-control" %><br/><br/>
         
-        <%=f.submit value:"投稿", class:"btn center-block form-control"%> </div>
+         <%= f.submit "記帳",class:"btn btn-primary form-control" %><br/>
+		   
+			  
+        
           <%end%>
+          </div></div>
           </div>
-          </div>
+        
         
