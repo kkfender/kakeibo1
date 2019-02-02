@@ -53,8 +53,8 @@ class OutputsController < ApplicationController
         .where(user_id: @current_user.id).page(params[:page]).per(20).order("date DESC")
 
       end
-    @with_sum = Output.group(:user_id).where(date: @this_month.all_month).sum(:withdrawal)   #総出金額
-     @depo_sum = Output.group(:user_id).where(date: @this_month.all_month).sum(:deposit)
+    @with_sum = Output.group(:user_id).where(user_id: @current_user.id).where(date: @this_month.all_month).sum(:withdrawal)   #総出金額
+     @depo_sum = Output.group(:user_id).where(user_id: @current_user.id).where(date: @this_month.all_month).sum(:deposit)  #あやしい
   end
   
      def edit

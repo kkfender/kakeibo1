@@ -1,8 +1,10 @@
 <br><div class="container">
  <div class="row">
+  <%if @users.total_asets==0 ||  @users.monthly_budget==0 ||  @users.monthly_savings==0 %>
   <div class="alert alert-danger">
-   <%=link_to("基本設定","/users/#{@users.id}/profile_new")%>を登録して見ましょう
+   <%=link_to("基本設定を登録して見ましょう","/users/#{@users.id}/profile_new")%>
   </div>
+  <%end%>
    <div class="row">
      <div class="col-md-8">
   <div class=" panel panel-default">
@@ -69,21 +71,32 @@
        </li>
        </ul>
       </div>
-                </div> </div>
-
+      </div>
+      </div>
                    </div>                      
- </div>                 <div class="row">
-                <div class="col-md-6">
-                     <table class=" table table-borderd table-hover">
+ </div>
+ <div class="row">
+  <div class="col-lg-4">
+    <div class=" panel panel-default">
+   <h2 class="total_asets text-center bg-info " ><i class="fas fa-yen-sign"> 総資産</i></h2>
+   
+            <p class="asets text-center ">¥<%= (@users.total_asets-@with_all_sum[2].to_i-@depo_all_sum[2].to_i).to_s(:delimited)%></p>
+    </div>
+   </div>
+               <div class="col-md-8">
+               
+                     <div class=" panel panel-default">
+                    
                       
                         <h2 class="month">今月の費目別支出額</h2>
+                         <table class=" table table-borderd table-hover">
                         <tr><th>費目</th>
-                     </tr> <tr><th><%= @users.outputs_day_category[0] unless @users.outputs_day_category.blank?%></th><tr>
+                     </tr> <tr><th><%= @users.outputs_day_category[2] unless @users.outputs_day_category.blank?%></th><tr>
                          </table>
                 </div>
                 <div class="col-md-6"></div>
             
-        </div>
+        </div> </div>
         
         <div class="col-lg-4"></div>
     
