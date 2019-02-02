@@ -17,4 +17,8 @@ class BackgroundUploader < CarrierWave::Uploader::Base
     original_filename if original_filename
   end
   
+   def default_url
+    "default.jpg"
+  end
+  
 end

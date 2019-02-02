@@ -12,5 +12,6 @@ resources:outputs
   get  "login"=> "users#login_form"
   patch "users/:id/profile" => "users#profile"
   get "users/:id/profile_new" => "users#profile_new"
+  get "users/:id" => "users#show"
 resources:users
 end

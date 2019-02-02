@@ -11,7 +11,7 @@
   <div class=" panel panel-default">
   
   <div class=" background-image img-responsive center-block"style="background-image:
-  url(<%=@users.background.url  unless @users.background.url.nil?%>)">
+  url(<%=@users.background.url %>)">
    <%=image_tag(@users.thumbnail.url,class: "img-thumbnail ")unless @users.thumbnail.url.nil?%>
     </div>
      </div>
@@ -48,13 +48,13 @@
            <li class="list-group-item">
        <h3><%=Date.today.strftime("%-m月")%>の貯金目標
        <div class="text-primary number pull-right">
-       <%=@users.monthly_savings==0?"目標を入力しましょう":     
+       <%=@users.monthly_savings==0?"目標を入力してね":     
       "¥#{@users.monthly_savings.to_s(:delimited)}" %></div></h3> 
       </li>
       <li class="list-group-item">
        <h3><%=Date.today.strftime("%-m月")%>の使える額
        <div class="text-primary number pull-right">
-       <%=@users.monthly_budget==0?"収入を入力しましょう":
+       <%=@users.monthly_budget==0?"収入を入力してね":
       "¥#{(@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings)
       .to_s(:delimited)}"%></div></h3>
       </li>
@@ -63,7 +63,7 @@
  <li class="list-group-item">
         <h3>今日の使える額
         <div class="text-primary number pull-right">
-       <%=@users.monthly_budget==0?"収入を入力しましょう":
+       <%=@users.monthly_budget==0?"収入を入力してね":
        (last_day-today).to_i>=1?
        "¥#{((@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings)/(last_day-today)
        .to_i).to_s(:delimited)}":

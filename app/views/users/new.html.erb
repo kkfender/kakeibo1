@@ -7,6 +7,9 @@
         <p class="errors"><%= @error_message %></p>
       <% end %>
 		<%= form_for @users, url: users_path do |f| %>
+		
+		<%= f.hidden_field :thumbnail, :value => "istockphoto-665117088-1024x1024.jpg"%>
+		<%= f.hidden_field :background, :value => "illumination18.jpg"%>
 		 <%= f.hidden_field :monthly_budget, :value => 0%>
      <%= f.hidden_field :monthly_savings, :value => 0%>
      <%= f.hidden_field :total_asets, :value => 0%>

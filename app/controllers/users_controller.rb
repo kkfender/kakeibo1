@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   
   def new
     @users = User.new
+    
   end
   
     def index
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
     if @users && @users.authenticate(params[:session][:password])
       session[:user_id]=@users.id
       flash[:success]="ログイン成功しました"
-      redirect_to users_path
+      redirect_to  user_path(@users) 
     else
       @error_message ="E-mail address or password is wrong"
       render("users/login_form") 
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
     if @users.save
       session[:user_id]=@users.id
       flash[:success]="ユーザー登録を完了しました"
-      redirect_to users_path(@users) 
+      redirect_to user_path(@users) 
     else
     render "users/new" 
     end  
