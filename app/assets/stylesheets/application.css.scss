@@ -9,8 +9,16 @@
   
 
 }
+
+
+html {
+ overflow: scroll;
+
+}
 body {
- 
+ width: 100%;
+height: 100%;
+overflow: hidden;
    background-color: #f5f5f5;
 }
 .footer {
@@ -178,9 +186,10 @@ display: block;
 }
 
 .kichou {
-  background-color:orange;
+  background-color:#FE9A2E;
   color:white;
    margin-top:-5px; 
+  
 }
 .delete {
   color:green;
@@ -235,4 +244,46 @@ p.asets {
 
 .xxx {
   margin-top:-70px;
+}
+.nav-tabs {
+  margin-left:520px;
+}
+.top {
+  margin-top:120px;
+  margin-bottom:60px;
+  font-size:50px;
+    font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
+  color:white;
+  font-weight:bolder ;
+}
+.lead {
+  margin-bottom:160px;
+  font-size:35px;
+    font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
+  color:white;
+  border-width:medium;
+  
+}
+.topbtn {
+  padding:10px;
+  font-size:20px;
+  border-color:white;
+  margin-bottom:50px;
+}
+.kantan {
+  padding-bottom:200px;
+  background-color:#FE9A2E;
+}
+
+
+.kichoubtn {
+  background-color:FE9A2E;
+  color:white;
+   margin-top:-3px; 
+   font-size:30px;
+   font-weight:midum;
+  
+}
+.yohaku {
+  height:60px;
 }

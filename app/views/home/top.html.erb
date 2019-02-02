@@ -1,25 +1,22 @@
-    <div class="container">
- 
-
-    <!-- About -->
-    <section id="about" class="about">
-        <div class="container">
+        <div class="container-fluid bg-success kantan">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h1>簡単に記帳できる家計簿アプリ</h2>
+                    <h1 class="top">簡単でシンプルに記帳できる家計簿アプリ</h2>
                     <p class="lead">Kakeiboは気軽に始められる家計簿アプリです</p>
-                    <a class="btn btn-lg" href="" >無料でサインアップ</a>
-                    <input type="button" class="btn btn-primary btn-lg" value="大きい" />
+                
+                    <li> <%= link_to(login_path,class:"btn warning kichoubtn")do%>
+      <div class="kichoubtn btn topbtn"> 無料でサインアップ</div>
+       <%end%>
 
                 </div>
             </div>
             <!-- /.row -->
         </div>
         <!-- /.container -->
-    </section>
+   
 
-    <section id="services" class="services bg-danger">
-        <div class="container">
+ 
+        <div class="container-fluid bg-info">
             <div class="row text-center">
                 <div class="col-lg-10 col-lg-offset-1">
                     <h1>機能</h1>
@@ -50,7 +47,7 @@
                                     <strong>総資産</strong>
                                 </h4>
                                 <p>現在の総資産を自動で計算して表示されます。</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
+                                
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -63,7 +60,7 @@
                                     <strong>Service Name</strong>
                                 </h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
+                                
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -77,7 +74,7 @@
                                     <strong>バッジ機能</strong>
                                 </h4>
                                 <p>あなたの行動に対してバッジが付与されます。まずはコメントしてみてください。</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -88,9 +85,6 @@
             <!-- /.row -->
         </div>
         <!-- /.container -->
-    </section>
+   
 
   
-   
- </div>
-   

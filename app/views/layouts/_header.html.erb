@@ -1,10 +1,12 @@
+  <%@current_user=User.find_by(id: session[:user_id])%>
+ <%if @current_user%>       <!--ログイン状態で表示-->
 <nav class="navbar navbar-default navbar-fixed-top primary navbar-brand">
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav ">
-        <%@current_user=User.find_by(id: session[:user_id])%>
-               <%if @current_user%>       <!--ログイン状態で表示-->
        
-        <li><%= link_to "/" do %>
+              
+       
+        <li><%= link_to user_path(@current_user) do %>
   <%= image_tag "kakeibologo.png",class: "logo" %>
   
 <% end %></li>
@@ -29,25 +31,11 @@
             <li class="dropdown-header"></li>
             <li><%= link_to "アカウント編集",edit_user_path(@current_user),class:"button"%></li>
             <li><%= link_to "ログアウト",logout_path,class:"button"%></li>
-          </ul>
+          </ul> </li>
         </ul>
             <%else%> <!--非ログイン状態で表示-->
-            <ul class="nav navbar-nav mr-auto"> 
-          
-             <li><%= link_to "/" do %>
-  <%= image_tag "kakeibologo.png",class: "logo" %>
-  
-<% end %></li>
-           
-           
-        <li><%= link_to "new",new_user_path,class:"button"%></li>
-         <li><%= link_to "login",login_path,class:"button"%></li>
-        </ul>
-            <%end%>
-             
-         
-        </li>
-      </ul>
-    </div><!--/.nav-collapse -->
+    <nav class="navbar  navbar-fixed-top   color">
+      </nav>
+      <%end%>
+   
   </div>
-</nav>
