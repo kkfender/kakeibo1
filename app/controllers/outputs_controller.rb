@@ -31,7 +31,7 @@ class OutputsController < ApplicationController
       
     else 
       flash[:danger]="記帳に失敗しました"
-      @error_message="出金額又は入金額は必ず入力してください"
+     
       render("outputs/new")   
     end
   end
