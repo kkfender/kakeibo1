@@ -90,8 +90,13 @@
                       
                         <h2 class="month">今月の費目別支出額</h2>
                          <table class=" table table-borderd table-hover">
-                        <tr><th>費目</th>
-                     </tr> <tr><th><%= @users.outputs_day_category[2] unless @users.outputs_day_category.blank?%></th><tr>
+                        <tr><th>費目</th>1</tr> <tr><th></th></th><tr>
+                    
+                        <%@users.outputs_day_category.to_a.each do|cat| %>
+                        <%=cat[0]%>
+                        <%end%>
+                     
+                      
                          </table>
                 </div>
                 <div class="col-md-6"></div>
