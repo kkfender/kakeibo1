@@ -24,7 +24,7 @@
           <%= f.file_field :background,class:"form-control",placeholder:"背景画像"%><br/>
 	 
 	        <%= f.submit "保存",class:"btn btn-primary form-control" %><br/>
-          <%=link_to( "退会する","/users/#{@users.id}/destroy",method: "post",data: {confirm: "本当に削除しますか？"},class:"pull-right delete1 btn " )%>
+          <%=link_to( "退会する","/users/#{@users.id}",method: "delete",data: {confirm: "本当に削除しますか？"},class:"pull-right delete1 btn " )%>
 
 		   <%end%>
 		</div> 

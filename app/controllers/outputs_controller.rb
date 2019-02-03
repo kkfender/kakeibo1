@@ -61,7 +61,7 @@ class OutputsController < ApplicationController
   
     if  @outputs.update_attributes(output_params)
       if  Output.where(user_id: @current_user.id).where.not(memo: "").count ==1 && 
-        @outputs.memo!=""
+        @outputs.memo!="" && Usersbudge.find_by(user_id: @current_user.id,budge_id: 2).nil?
         flash[:info] = "初めてのメモ記入ありがとうございます。[初めてのメモ]バッジを獲得しました"
         Usersbudge.create(user_id: @current_user.id,budge_id: 2)
       end
