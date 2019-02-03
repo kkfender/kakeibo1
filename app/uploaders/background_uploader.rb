@@ -1,6 +1,6 @@
 class BackgroundUploader < CarrierWave::Uploader::Base
    if Rails.env.production? || Rails.env.staging?
-    storage :fog
+    storage :file
   else
     storage :file
   end
