@@ -1,10 +1,12 @@
+       
         <div class="container-fluid bg-success kantan">
+           
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h1 class="top">簡単でシンプルに記帳できる家計簿アプリ</h2>
                     <p class="lead">Kakeiboは気軽に始められる家計簿アプリです</p>
                 
-                    <li> <%= link_to(login_path,class:"btn warning kichoubtn")do%>
+                    <li> <%= link_to(signup_path,class:"btn warning kichoubtn")do%>
       <div class="kichoubtn btn topbtn"> 無料でサインアップ</div>
        <%end%>
 
@@ -16,10 +18,10 @@
    
 
  
-        <div class="container-fluid bg-info">
+        <div class="container-fluid bg-default option">
             <div class="row text-center">
                 <div class="col-lg-10 col-lg-offset-1">
-                    <h1>機能</h1>
+                    <h1 class="midashi">機能</h1>
                     <hr class="small">
                     <div class="row">
                         <div class="col-md-3 col-sm-6">
@@ -46,7 +48,7 @@
                                 <h4>
                                     <strong>総資産</strong>
                                 </h4>
-                                <p>現在の総資産を自動で計算して表示されます。</p>
+                                <p>現在の総資産が自動で計算され表示されます。</p>
                                 
                             </div>
                         </div>
@@ -54,12 +56,13 @@
                             <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-flask fa-stack-1x text-primary"></i>
+                                <i class="fa fa-calendar fa-fw fa-stack-1x text-primary"></i>
+                              
                             </span>
                                 <h4>
-                                    <strong>Service Name</strong>
+                                    <strong>月別管理</strong>
                                 </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                <p>月ごとの記録が保存されるので、過去の記録を参照することが可能です</p>
                                 
                             </div>
                         </div>
@@ -85,6 +88,24 @@
             <!-- /.row -->
         </div>
         <!-- /.container -->
-   
-
-  
+        <div class="container-fluid bg-default hr option">
+            <div class="row text-center">
+                   <h1 class="midashi">リンク</h1>
+             
+                <div class="github-unker"> <%= link_to("https://github.com/kkfender",class:"")do%>
+      <div class="github-unker"><i class="fab fa-github "> GitHub</i></div>
+       <%end%></div> 
+            </div>
+            <!-- /.row -->
+        </div>
+       <div class="container-fluid bg-default hr ">
+            <div class="row ">
+               <ul class="text-right text-default last">
+                   <li>
+                       Kakeibo    ©2019
+                   </li>
+                   
+               </ul>
+            </div>
+            <!-- /.row -->
+        </div>

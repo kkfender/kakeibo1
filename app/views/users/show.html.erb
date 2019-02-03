@@ -24,7 +24,7 @@
                    <ul class="list-group">
                      <li class="list-group-item">
                      
-                       <h3>今日の記帳数   <div class=" number pull-right text-success "><%= @users.outputs_day.count%>回</div></h3>
+                       <h3>本日の記帳数   <div class=" number pull-right text-success "><%= @users.outputs_day.count%>回</div></h3>
                      </li>
                       <li class="list-group-item">
                          
@@ -32,7 +32,7 @@
                      </li>
                       <li class="list-group-item">
                        
-                       <h3>今日の支出 <div class=" number pull-right text-danger ">¥<%= @users.outputs_day_with.sum[1].to_s(:delimited)%></div></h3>
+                       <h3>本日の支出 <div class=" number pull-right text-danger ">¥<%= @users.outputs_day_with.sum[1].to_s(:delimited)%></div></h3>
                      </li>
                      <li class="list-group-item">
                         <h3>今月の支出<div class=" number pull-right text-danger ">¥<%= @users.outputs_month_with.sum[1].to_s(:delimited)%></div></h3>
@@ -62,7 +62,7 @@
      <%  today = Date.today%>
   <% last_day = Date.new(today.year, today.month, -1)%>
  <li class="list-group-item">
-        <h3>今日の使える額
+        <h3>本日の使える額
         <div class="text-primary number pull-right">
        <%=@users.monthly_budget==0?"収入を入力してね":
        (last_day-today).to_i>=1?

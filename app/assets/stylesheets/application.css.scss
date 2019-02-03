@@ -156,7 +156,10 @@ input[name="tab_item"] {
  /* border:solid black 1px;*/
 }
 .navbar-nav {
-  
+  margin-top:5px;
+  font-size:20px;
+    font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
+
 }
 .logo {
   margin-top:-13px;
@@ -177,7 +180,8 @@ width:750px;
   margin-top:290px;
   margin-left:10px;
 }
-h3 {font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
+h3 {
+  font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
 margin:0 ;
   
 }
@@ -266,11 +270,22 @@ p.asets {
   
 }
 .topbtn {
-  padding:10px;
-  font-size:20px;
-  border-color:white;
-  margin-bottom:50px;
+    display: inline-block;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: #FE9A2E;
+    border: solid 3px white;
+    border-radius: 3px;
+    transition: .4s;
 }
+
+.topbtn:hover {
+    background: white;
+    color: #FE9A2E;
+}
+
+
+
 .kantan {
   padding-bottom:200px;
   background-color:#FE9A2E;
@@ -293,4 +308,48 @@ p.asets {
 }
 .color {
     background-color:#FE9A2E;
+}
+.top-header li{
+  float:right;
+  color:white;
+  font-size:25px;
+   list-style: none;
+  
+   margin-top:10px;
+   margin-right:20px;
+
+}
+.top-header li a{
+  float:right;
+  color:white;
+  font-size:25px;
+   list-style: none;
+  text-decoration: none;
+
+   margin-top:5px;
+   margin-right:20px;
+
+}
+.github {
+  color:white;
+}
+
+.midashi {
+  margin-top:40px;
+}
+.hr {
+  border-top:1px solid #cccccc;
+ 
+}
+
+.github-unker {
+  margin-top:50px;
+  color:darkgray;
+  font-size:30px;
+}
+.option {
+  margin-bottom:50px;
+}
+.last {
+  margin:10px 10px 0 0;
 }

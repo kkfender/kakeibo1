@@ -6,12 +6,12 @@
           
              <li><%= link_to "/" do %>
   <%= image_tag "kakeibologo.png",class: "logo" %>
-  
-<% end %></li>
+  <% end %>
+  </li>
            
            
-        <li><%= link_to "new",new_user_path,class:"button"%></li>
-         <li><%= link_to "login",login_path,class:"button"%></li>
+        <li class="notlogin"><%= link_to "new",new_user_path,class:"button"%></li>
+         <li class="notlogin"><%= link_to "login",login_path,class:"button"%></li>
         </ul></ul>
              </div><!--/.nav-collapse -->
           </nav> 

@@ -10,7 +10,7 @@
   <%= image_tag "kakeibologo.png",class: "logo" %>
   
 <% end %></li>
-        <li><%= link_to "About","/about",class:"button"%></li>
+       
          <li> <%= link_to(new_output_path,class:"btn warning kichoubtn")do%>
       <p class="kichou btn"><i class="fas fa-marker kichou "> 記帳する</i></p>
        <%end%>
@@ -35,6 +35,21 @@
         </ul>
             <%else%> <!--非ログイン状態で表示-->
     <nav class="navbar  navbar-fixed-top  color">
+        
+         <ul class="top-header">
+              <li class="pull-left"><%=link_to("Kakeibo","/",class:"github")%>
+               </li>
+                 <li><%=link_to("ログイン",login_path,class:"github")%>
+               </li>
+               
+               
+                <li> <%= link_to("https://github.com/kkfender",class:"")do%>
+      <div class="github"><i class="fab fa-github "> GitHub  </i></div>
+       <%end%>
+               
+               </li>
+               
+               </ul>
       </nav>
       <%end%>
    
