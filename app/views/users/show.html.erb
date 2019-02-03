@@ -131,15 +131,15 @@
                        <%a = 0%>
                   <%for i in @users.budges.map(&:budge_name).flatten do%>
                   <% if a==0%><tr><td>
-                <span data-toggle="tooltip" data-placement="bottom" title="初めての記帳に対して贈られます">
+               
                   <%= image_tag("#{@users.budges.map(&:budge_name)
                   .flatten[a]}.png",class: "budge_img") %>
-                  </span>
+                  
                    <% else%>
-                <span data-toggle="tooltip" data-placement="bottom" title="初めてメモを使った方に送られます">
+                
                   <%= image_tag("#{@users.budges.map(&:budge_name)
                   .flatten[a]}.png",class: "budge_img") %>
-                  </span>
+                  
                   </td></tr>
                   <%end%>
                    <%a =a+1%>
