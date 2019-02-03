@@ -25,8 +25,12 @@
 	 
 	 
          <%= f.submit "保存",class:"btn btn-primary form-control" %><br/>
+         			 <%=link_to( "退会する","/users/#{@users.id}/destroy",method: "post",data: {confirm: "本当に削除しますか？"},class:"pull-right delete btn " )%>
+
 		   <%end%>
-			   </div> </div>
+			   </div> 
+                
+			  </div>
       </div>
    
   
