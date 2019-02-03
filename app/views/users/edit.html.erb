@@ -1,37 +1,35 @@
- <div class = "container">
-	<div class="wrapper">
-	<div class="form-signin"> 
-	 <h3 class="form-signin-heading">アカウント編集</h3>
-
-      <% if @error_message%>
-        <p class="errors"><%= @error_message %></p>
-      <% end %>
-		<%= form_for @users,url: user_path do |f| %>
-		 <%= f.hidden_field :monthly_budget, :value => 0%>
-     <%= f.hidden_field :monthly_savings, :value => 0%>
-      名前 <span class="label label-danger",>必須項目</span>
-		   <%= f.text_field :name ,class:"form-control",placeholder:"名前を入力"%><br/>
-		   メールアドレス <span class="label label-danger",>必須項目</span>
-	  <%= f.text_field :email,class:"form-control",placeholder:"メールアドレス" %><br/>
-	     
+<div class = "container">
+  <div class="wrapper">
+	  <div class="form-signin"> 
+	    <h3 class="form-signin-heading">アカウント編集</h3>
+        <% if @error_message%>
+          <p class="errors"><%= @error_message %></p>
+        <% end %>
+		    
+		    <%= form_for @users,url: user_path do |f| %>
+		      
+		      <%= f.hidden_field :monthly_budget, :value => 0%>
+          <%= f.hidden_field :monthly_savings, :value => 0%>
+          
+          名前 <span class="label label-danger",>必須項目</span>
+		      <%= f.text_field :name ,class:"form-control",placeholder:"名前を入力"%><br/>
+		      
+		      メールアドレス <span class="label label-danger",>必須項目</span>
+	        <%= f.text_field :email,class:"form-control",placeholder:"メールアドレス" %><br/>
+	        
+	        サムネ イル <span class="label label-primary",>任意項目</span>
+          <%= f.file_field :thumbnail,class:"form-control",placeholder:"サムネイル画像"%><br/>
+          
+          背景画像 <span class="label label-primary",>任意項目</span>
+          <%= f.file_field :background,class:"form-control",placeholder:"背景画像"%><br/>
 	 
-	 サムネイル <span class="label label-primary",>任意項目</span>
-    <%= f.file_field :thumbnail,class:"form-control",placeholder:"サムネイル画像"%><br/>
-    背景画像 <span class="label label-primary",>任意項目</span>
-    <%= f.file_field :background,class:"form-control",placeholder:"背景画像"%><br/>
-	 
-
-             
-	 
-	 
-         <%= f.submit "保存",class:"btn btn-primary form-control" %><br/>
-         			 <%=link_to( "退会する","/users/#{@users.id}/destroy",method: "post",data: {confirm: "本当に削除しますか？"},class:"pull-right delete1 btn " )%>
+	        <%= f.submit "保存",class:"btn btn-primary form-control" %><br/>
+          <%=link_to( "退会する","/users/#{@users.id}/destroy",method: "post",data: {confirm: "本当に削除しますか？"},class:"pull-right delete1 btn " )%>
 
 		   <%end%>
-			   </div> 
-                
-			  </div>
-      </div>
+		</div> 
+  </div>
+</div>
    
   
 

@@ -5,16 +5,15 @@ class UsersController < ApplicationController
   
   def new
     @users = User.new
-    
   end
   
-    def index
+  def index
     @users = User.all
-   
-    
   end
+  
   def login
-      @users = User.find_by(email: params[:session][:email].downcase)
+    @users = User.find_by(email: params[:session][:email].downcase)
+    
     if @users && @users.authenticate(params[:session][:password])
       session[:user_id]=@users.id
       flash[:success]="ログイン成功しました"
@@ -32,37 +31,34 @@ class UsersController < ApplicationController
   end
   
   def create       
-    
     #raise.params.inspect
     @users =User.new(user_params)
+    
     if @users.save
       session[:user_id]=@users.id
       flash[:success]="ユーザー登録を完了しました"
       redirect_to user_path(@users) 
     else
-    render "users/new" 
+      render "users/new" 
     end  
   end  
    
   def login_form
   end  
   
-   def show
-    
+  def show
     @users = User.find_by(id: params[:id])
     @outputs = Output.new
-     @with_sum = Output.group(:user_id).sum(:withdrawal)  
+    @with_sum = Output.group(:user_id).sum(:withdrawal)  
     @with_all_sum = Output.where(user_id: @current_user.id).group(:user_id).sum(:withdrawal)   #総出金額
-     @depo_all_sum = Output.where(user_id: @current_user.id).group(:user_id).sum(:deposit)
-    
+    @depo_all_sum = Output.where(user_id: @current_user.id).group(:user_id).sum(:deposit)
   end
   
-   def update
+  def update
      #raise.params.inspect
     @users = User.find_by(id: params[:id])
-   
+  
     if  @users.update_attributes(user_params)
-       
       flash[:success] = "ユーザー情報を編集しました"
       redirect_to user_path(@users)
     else
@@ -70,16 +66,15 @@ class UsersController < ApplicationController
     end
   end
   
-   def profile_new
-     @users=User.find_by(id: params[:id])
-   end
+  def profile_new
+    @users=User.find_by(id: params[:id])
+  end
   
   def profile
-     #raise.params.inspect
+    #raise.params.inspect
     @users = User.find_by(id: params[:id])
    
     if  @users.update_attributes(user_params)
-       
       flash[:success] = "基本設定を編集しました"
       redirect_to user_path(@users)
     else
@@ -93,26 +88,20 @@ class UsersController < ApplicationController
     redirect_to ("/login")
   end
   
-   def ensure_correct_user
+  def ensure_correct_user
     @users=User.find_by(id: params[:id])
+  
     if @users.id != @current_user.id
       flash[:danger]="権限がありません"
       redirect_to "/users/#{@current_user.id}"
     end
   end  
    
-   
-
-   
-    private
+  private
   
   def user_params
-      params.require(:user).permit(
-      :name, :email, :password, 
-      :password_confirmation,:monthly_budget,:monthly_savings,:thumbnail,:background,:total_asets)
+    params.require(:user).permit(
+    :name, :email, :password, 
+    :password_confirmation,:monthly_budget,:monthly_savings,:thumbnail,:background,:total_asets)
   end
-   
-   
-   
-   
 end

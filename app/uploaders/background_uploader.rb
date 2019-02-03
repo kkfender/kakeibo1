@@ -1,5 +1,5 @@
 class BackgroundUploader < CarrierWave::Uploader::Base
-   if Rails.env.production? || Rails.env.staging?
+  if Rails.env.production? || Rails.env.staging?
     storage :file
   else
     storage :file
@@ -17,9 +17,7 @@ class BackgroundUploader < CarrierWave::Uploader::Base
     original_filename if original_filename
   end
   
-   def default_url
-       ActionController::Base.helpers.asset_path("default.jpg")
-   end
-
-  
+  def default_url
+    ActionController::Base.helpers.asset_path("default.jpg")
+  end
 end

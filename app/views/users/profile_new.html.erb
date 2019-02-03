@@ -1,37 +1,34 @@
- <div class = "container">
+<div class = "container">
 	<div class="wrapper">
-	<div class="form-signin"> 
-	 <h3 class="form-signin-heading">基本設定</h3>
-
-      <% unless @users.errors.blank? %>
- <div class="panel-body form-horizontal  alert alert-danger">
- <% @users.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </div>
-<% end %>
+		<div class="form-signin"> 
+	 		<h3 class="form-signin-heading">基本設定</h3>
+	      <% unless @users.errors.blank? %>
+ 					<div class="panel-body form-horizontal  alert alert-danger">
+ 						<% @users.errors.full_messages.each do |message| %>
+        			<li><%= message %></li>
+      			<% end %>
+      		</div>
+				<% end %>
+		
 		<%= form_for @users,url: "/users/#{@users.id}/profile" do |f| %>
-		 <%= f.hidden_field :monthly_budget, :value => 0%>
-     <%= f.hidden_field :monthly_savings, :value => 0%>
-     <%= f.hidden_field :total_asets, :value => 0%>
+		  <%= f.hidden_field :monthly_budget, :value => 0%>
+      <%= f.hidden_field :monthly_savings, :value => 0%>
+      <%= f.hidden_field :total_asets, :value => 0%>
    
-	     
-	  月の収入 <span class="label label-primary",>任意項目</span>
-	   <%= f.number_field :monthly_budget,class:"form-control" %><br>
-	     月の貯金目標 <span class="label label-primary",>任意項目</span>
-	   <%= f.number_field :monthly_savings,class:"form-control" %><br>
-	     総資産額 <span class="label label-primary",>任意項目</span>
-	   <%= f.number_field :total_asets,class:"form-control",placeholder:0 %><br><br>
+		  月の収入 <span class="label label-primary",>任意項目</span>
+	    <%= f.number_field :monthly_budget,class:"form-control" %><br>
 	 
+	    月の貯金目標 <span class="label label-primary",>任意項目</span>
+	   	<%= f.number_field :monthly_savings,class:"form-control" %><br>
 	 
-
-             
+	    総資産額 <span class="label label-primary",>任意項目</span>
+	   	<%= f.number_field :total_asets,class:"form-control",placeholder:0 %><br><br>
 	 
-	 
-         <%= f.submit "保存",class:"btn btn-primary form-control" %><br/>
-		   <%end%>
-			   </div> </div>
-      </div>
+	    <%= f.submit "保存",class:"btn btn-primary form-control" %><br/>
+	  <%end%>
+		</div>
+	</div>
+</div>
    
   
 

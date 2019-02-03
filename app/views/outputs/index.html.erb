@@ -1,70 +1,64 @@
-
-  <div class="container xxx"></div>
-<div class="container xxx">
-<div class="center-block">
- 
-  <%#="月の予算#{@users.monthly_budget}円"%>
- <%#="今月の出費#{@with_sum[@users.id]}円"%>
- <%#="今月の入金#{@depo_sum[@users.id]}円"%>
-
- <h2 class="text-center"></h2>
-  <div class="btn-group btn-group-justified"role="group">
-  <div class="btn btn-default ">
-    
-   
-  <%=link_to "#{@this_month.last_month.strftime("%Y年%m月")}",
-  "/outputs/index/#{@this_month.last_month}",role:"button"%>
-  </div>
-   <div class="btn btn-default"><%=@this_month.strftime("%m月")%></div>
-   
-    <div class="btn btn-default">
-    <%=link_to "#{@this_month.next_month.strftime("%Y年%m月")}",
-    "/outputs/index/#{ @this_month.next_month}",role:"button"%>
-   </div>
-   
-</div> 
-            
-        <br>   
-  <table class="table table-borderd table-striped table-hover primary">
-    <tr><th>記帳日</th><th>店名</th><th>支出項目</th><th>収入項目</th><th>出金額</th><th>入金額</th><th>メモ</th><th>編集</th><th>削除</th></tr>
- 
-  <% @outputs.each do |output| %>
-  <%if output.user_id==@users.id &&%> 
-  <tr>
-  <td><%=output.date%></td>
-  <td><%=output.shop_name%></td>
-  <td><%=output.category%></td><td><%=output.revenue_item%></td><td><%=output.withdrawal.to_s(:delimited) unless output.withdrawal.nil?%></td>
-  <td><%=output.deposit.to_s(:delimited) unless output.deposit.nil?%></td>
-    <td><%=output.memo%></td>
-    <td>
-       <%= link_to("/outputs/#{output.id}/edit",class:"btn edit")do%>
-       <i class="far fa-edit"></i>
-       <%end%>
-    </td>
-      <td>
-         <%=link_to("/outputs/#{output.id}", :method => :delete,data: {confirm: "本当に削除しますか？"},class:"btn pull-center delete") do%>
-       <i class="fas fa-trash "></i>
-                 <%end%></td>
-                 </td>
-  </tr>
-    <%end%> 
-    <%end%>
-    
-  </table>
-  </div>
-   <div class="row">
+<div class="container xxx"></div>
+  <div class="container xxx">
+    <div class="center-block">
+      <h2 class="text-center"></h2>
+        <div class="btn-group btn-group-justified"role="group">
+          <div class="btn btn-default ">
+            <%=link_to "#{@this_month.last_month.strftime("%Y年%m月")}",
+            "/outputs/index/#{@this_month.last_month}",role:"button"%>
+          </div>
+          
+          <div class="btn btn-default"><%=@this_month.strftime("%m月")%></div>
+            <div class="btn btn-default">
+              <%=link_to "#{@this_month.next_month.strftime("%Y年%m月")}",
+              "/outputs/index/#{ @this_month.next_month}",role:"button"%>
+            </div>
+          </div> 
+          <br>   
+         
+          <table class="table table-borderd table-striped table-hover primary">
+            <tr><th>記帳日</th><th>店名</th><th>支出項目</th><th>収入項目</th><th>出金額</th><th>入金額</th><th>メモ</th><th>編集</th><th>削除</th></tr>
+              <% @outputs.each do |output| %>
+                <%if output.user_id==@users.id &&%> 
+                  <tr>
+                    <td><%=output.date%></td>
+                    <td><%=output.shop_name%></td>
+                     <td><%=output.category%></td><td><%=output.revenue_item%></td><td><%=output.withdrawal.to_s(:delimited) unless output.withdrawal.nil?%></td>
+                     <td><%=output.deposit.to_s(:delimited) unless output.deposit.nil?%></td>
+                     <td><%=output.memo%></td>
+                     <td>
+                       <%= link_to("/outputs/#{output.id}/edit",class:"btn edit")do%>
+                         <i class="far fa-edit"></i>
+                       <%end%>
+                     </td>
+                     <td>
+                       <%=link_to("/outputs/#{output.id}", :method => :delete,data: {confirm: "本当に削除しますか？"},class:"btn pull-center delete") do%>
+                         <i class="fas fa-trash "></i>
+                       <%end%>
+                      </td>
+                        </td>
+                  </tr>
+                  <%end%> 
+                <%end%>
+          </table>
+    </div>
+      <div class="row">
         <div class="col-md-8">
+        </div>
+     
+        <div class="col-md-4">
+          <table class="table table-borderd  primary"> 
+            <tr><th>支出額</th><th class="text-danger"><%=(@with_sum[@users.id].to_i*-1).to_s(:delimited)%></th></tr>
+            <tr><th>収入額</th><th class="text-primary"><%=(@depo_sum[@users.id].to_i).to_s(:delimited)%></th></tr>
+            <tr><th>合計</th><%if (@with_sum[@users.id].to_i*-1)+(@depo_sum[@users.id].to_i)>=0%>
+            <th class="text-primary"><%=((@with_sum[@users.id].to_i*-1)+(@depo_sum[@users.id].to_i)).to_s(:delimited)%></th></tr>
+               <%else%>
+            <th class="text-danger"><%=((@with_sum[@users.id].to_i*-1)+(@depo_sum[@users.id].to_i)).to_s(:delimited)%></th></tr>
+               <%end%>
+          </table>
+        </div>
+        
+        <%= paginate @outputs %>
+        
   </div>
-  <div class="col-md-4">
-     <table class="table table-borderd  primary"> 
-      <tr><th>支出額</th><th class="text-danger"><%=(@with_sum[@users.id].to_i*-1).to_s(:delimited)%></th></tr>
-       <tr><th>収入額</th><th class="text-primary"><%=(@depo_sum[@users.id].to_i).to_s(:delimited)%></th></tr>
-       
-      <tr><th>合計</th><%if (@with_sum[@users.id].to_i*-1)+(@depo_sum[@users.id].to_i)>=0%>
-      <th class="text-primary"><%=((@with_sum[@users.id].to_i*-1)+(@depo_sum[@users.id].to_i)).to_s(:delimited)%></th></tr>
-      <%else%>
-       <th class="text-danger"><%=((@with_sum[@users.id].to_i*-1)+(@depo_sum[@users.id].to_i)).to_s(:delimited)%></th></tr>
-      <%end%>
-      </table></div>
-  <%= paginate @outputs %>
-  </div></div>
+</div>                  

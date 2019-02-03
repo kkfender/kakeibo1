@@ -1,29 +1,25 @@
- <div class="container x">
-
-
-
-     
+<div class="container x">
   <div>
-  <ul class="nav nav-tabs" role="tablist">
-    <li class="active" role="presentation">
-      <a aria-controls="tab_a" data-toggle="tab" href="#tab_a" role="tab">支出</a>
-    </li>
-    <li role="presentation">
-      <a aria-controls="tab_b" data-toggle="tab" href="#tab_b" role="tab">収入</a>
-    </li>
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="active" role="presentation">
+        <a aria-controls="tab_a" data-toggle="tab" href="#tab_a" role="tab">支出</a>
+      </li>
+      <li role="presentation">
+        <a aria-controls="tab_b" data-toggle="tab" href="#tab_b" role="tab">収入</a>
+      </li>
+    </ul>
     
-  </ul>
-  <div class="tab-content">
-    <div class="tab-pane active" id="tab_a" role="tabpanel">
-      <p>
-        <%=render"outputs/outputwithedit"%>
-      </p>
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab_a" role="tabpanel">
+        <p>
+          <%=render"outputs/outputwithedit"%>
+        </p>
+      </div>
+      <div class="tab-pane" id="tab_b" role="tabpanel">
+        <p>
+          <%=render"outputs/outputdepoedit"%>
+        </p>
+      </div>
     </div>
-    <div class="tab-pane" id="tab_b" role="tabpanel">
-      <p>
-        <%=render"outputs/outputdepoedit"%>
-      </p>
-    </div>
-    
   </div>
-</div></div>
+</div>

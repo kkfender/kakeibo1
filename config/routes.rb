@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
 root 'home#top'
+
 get "/about" => "home#about"
+
 resources:users
    get  "outputs/index/:date" => "outputs#index"
    post "outputs/index/:date" => "outputs#index"
+
 resources:outputs
   post "login" => "users#login"
   get "logout" => "users#logout"
@@ -13,5 +16,7 @@ resources:outputs
   patch "users/:id/profile" => "users#profile"
   get "users/:id/profile_new" => "users#profile_new"
   get "users/:id" => "users#show"
+
 resources:users
+
 end

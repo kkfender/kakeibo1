@@ -5,12 +5,11 @@ ruby '2.5.3'
 
 
 gem 'sprockets-rails'
-
 gem 'carrierwave'
 gem 'momentjs-rails'
- gem 'font-awesome-sass'
+gem 'font-awesome-sass'
 gem 'bootstrap-datetimepicker-rails'
- gem 'pry-byebug'
+gem 'pry-byebug'
 gem 'kaminari-bootstrap'
 gem 'kaminari', '~> 0.17.0'
 gem 'jquery-rails'

@@ -1,51 +1,44 @@
-          
-          <nav class="navbar navbar-default navbar-fixed-top  ">
-    <div id="navbar" class="collapse  navbar-collapse">
-      <ul class="nav navbar-nav ">
-            <ul class="nav navbar-nav mr-auto "> 
-          
-             <li><%= link_to "/" do %>
-  <%= image_tag "kakeibologo.png",class: "logo" %>
-  <% end %>
-  </li>
-           
-           
+<nav class="navbar navbar-default navbar-fixed-top  ">
+  <div id="navbar" class="collapse  navbar-collapse">
+    <ul class="nav navbar-nav ">
+      <ul class="nav navbar-nav mr-auto "> 
+        <li><%= link_to "/" do %>
+          <%= image_tag "kakeibologo.png",class: "logo" %>
+            <% end %>
+        </li>
         <li class="notlogin"><%= link_to "new",new_user_path,class:"button"%></li>
-         <li class="notlogin"><%= link_to "login",login_path,class:"button"%></li>
-        </ul></ul>
-             </div><!--/.nav-collapse -->
-          </nav> 
-   <div class = "container text-center">
-     	<div class="wrapper">
-     	 <p>新規登録が煩わしければ</p>
-      <p>こちらをご利用ください</p>
-      <p>email:sample@yahoo.com</p>
-      <p>password:11111111</p>
-      </div>
-    </div>
-    
-     <div class = "container"> 
-	<div class="wrapper">
-	<div class="form-signin"> 
-	 <h3 class="form-signin-heading">ログイン</h3>
-
-      <%  if @error_message %>
- <div class="panel-body form-horizontal  alert alert-danger">
- 
-        <li><%= @error_message %></li>
-   
-      </div>
-<% end %>
-		 <%= form_for :session, url: login_path do |f| %>
-		 メールアドレス 
-		  <%= f.text_field :email,class:"form-control",placeholder:"メールアドレス" %><br />
-		  パスワード
-		   <%= f.password_field :password,class:"form-control",placeholder:"パスワード" %><br/>
+        <li class="notlogin"><%= link_to "login",login_path,class:"button"%></li>
+        </ul>
+          </ul>
+            </nav> 
+            <div class = "container text-center">
+     	        <div class="wrapper">
+     	          <p>新規登録が煩わしければ</p>
+                <p>こちらをご利用ください</p>
+                <p>email:sample@yahoo.com</p>
+                <p>password:11111111</p>
+              </div>
+            </div>
+             <div class = "container"> 
+	             <div class="wrapper">
+	               <div class="form-signin"> 
+	                 <h3 class="form-signin-heading">ログイン</h3>
+                     <%  if @error_message %>
+                       <div class="panel-body form-horizontal  alert alert-danger">
+                         <li><%= @error_message %></li>
+                       </div>
+                             <% end %>
+		 
+		        <%= form_for :session, url: login_path do |f| %>
+		      
+		          メールアドレス 
+		          <%= f.text_field :email,class:"form-control",placeholder:"メールアドレス" %><br />
+		          パスワード
+		          <%= f.password_field :password,class:"form-control",placeholder:"パスワード" %><br/>
 		   
-        <%= f.submit "ログイン",class:"btn btn-lg btn-primary btn-block" %><br/>
-		   <%end%>
+              <%= f.submit "ログイン",class:"btn btn-lg btn-primary btn-block" %><br/>
+		          <%end%
 			   </div>
-
       </div>
     </div>
   

@@ -6,27 +6,20 @@
 
 * {
 /*border:solid black 1px;*/
-  
-
-}
-
+ }
 
 html {
- overflow: scroll;
-
+  overflow: scroll;
 }
 body {
-
- width: 100%;
-height: 100%;
-
-   background-color: #f5f5f5;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
 }
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 60px;
   background-color: #f5f5f5;
 }
@@ -41,10 +34,6 @@ body > .container {
   padding-right: 15px;
   padding-left: 15px;
 }
-.wrapper {    
-	
-}
-
 .form-signin {
   max-width: 420px;
   padding: 30px 38px 66px;
@@ -52,31 +41,26 @@ body > .container {
   background-color: #eee;
   border: 3px dotted rgba(0,0,0,0.1);  
   }
-
 .form-signin-heading {
   text-align:center;
   margin-bottom: 30px;
 }
-
 .form-control {
   position: relative;
   font-size: 16px;
   height: auto;
   padding: 10px;
 }
-
 input[type="text"] {
   margin-bottom: 0px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-
 input[type="password"] {
   margin-bottom: 20px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
 .colorgraph {
   height: 7px;
   border-top: 0;
@@ -133,33 +117,25 @@ input[name="tab_item"] {
 .tabs input:checked + .tab_item {
   background-color: #5ab4bd;
   color: #fff;
-
 }
 /**/
 #date-form {
   position: relative;
 }
-
 /**/
 .budge_img {
   width:100px;
   height:100px;
 }
-
 .navbar-brand {
   height: 65px;
   padding: 5px 15px;
   background-color:white;
 }
-
-* {
- /* border:solid black 1px;*/
-}
 .navbar-nav {
   margin-top:5px;
   font-size:20px;
     font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
-
 }
 .logo {
   margin-top:-13px;
@@ -171,7 +147,7 @@ input[name="tab_item"] {
   height:200px;
 }
 .background-image {
-width:750px;
+  width:750px;
   height:400px;
 }
 .img-thumbnail {
@@ -182,25 +158,21 @@ width:750px;
 }
 h3 {
   font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
-margin:0 ;
-  
+  margin:0 ;
 }
  a {
 text-decoration: none;
 display: block;
 }
-
 .kichou {
   background-color:#FE9A2E;
   color:white;
    margin-top:-5px; 
-  
 }
 .delete {
   color:green;
 }
 .edit {
- 
   color:green;
 }
 h3:before {
@@ -217,16 +189,14 @@ h2.month {
   font-size:22px;
   font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
   margin:10px 10px ;
-
 }
-
 .btn-circle {
-width: 30px;
-height: 30px;
-padding: 10px 16px;
-font-size: 18px;
-line-height: 1.33;
-border-radius: 25px;
+  width: 30px;
+  height: 30px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
 }
 .number {
   font-weight:medium;
@@ -235,18 +205,15 @@ h2.total_asets {
   font-size:22px;
   font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
   margin:10px 10px ;
-
 }
 p.asets {
   font-size:32px;
   font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
   margin:20px 20px ;
-
 }
 .fa-circle {
   color:white;
 }
-
 .xxx {
   margin-top:-70px;
 }
@@ -257,91 +224,76 @@ p.asets {
   margin-top:120px;
   margin-bottom:60px;
   font-size:50px;
-    font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
+  font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
   color:white;
   font-weight:bolder ;
 }
 .lead {
   margin-bottom:160px;
   font-size:35px;
-    font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
+  font-family: 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic''ＭＳ ゴシック','Helvetica Neue','Helvetica','Arial',sans-serif;
   color:white;
   border-width:medium;
-  
 }
 .topbtn {
-    display: inline-block;
-    padding: 0.3em 1em;
-    text-decoration: none;
-    color: #FE9A2E;
-    border: solid 3px white;
-    border-radius: 3px;
-    transition: .4s;
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #FE9A2E;
+  border: solid 3px white;
+  border-radius: 3px;
+  transition: .4s;
 }
-
 .topbtn:hover {
-    background: white;
-    color: #FE9A2E;
+  background: white;
+  color: #FE9A2E;
 }
-
-
-
 .kantan {
   padding-bottom:200px;
   background-color:#FE9A2E;
   margin-top:-20px;
 }
-
-
 .kichoubtn {
   background-color:FE9A2E;
   color:white;
-   margin-top:-3px; 
-   font-size:30px;
-   font-weight:midum;
-  
+  margin-top:-3px; 
+  font-size:30px;
+  font-weight:midum;
 }
 .yohaku {
-  height:60px;
-   background-color:#FE9A2E;
-   margin-bottom:20px;
+  height:55px;
+  background-color:#FE9A2E;
+  margin-bottom:20px;
 }
 .color {
-    background-color:#FE9A2E;
+  background-color:#FE9A2E;
 }
 .top-header li{
   float:right;
   color:white;
   font-size:25px;
-   list-style: none;
-  
-   margin-top:10px;
-   margin-right:20px;
-
+  list-style: none;
+  margin-top:10px;
+  margin-right:20px;
 }
 .top-header li a{
   float:right;
   color:white;
   font-size:25px;
-   list-style: none;
+  list-style: none;
   text-decoration: none;
-
-   margin-top:5px;
-   margin-right:20px;
-
+  margin-top:5px;
+  margin-right:20px;
 }
 .github {
   color:white;
 }
-
 .midashi {
   margin-top:40px;
 }
 .hr {
   border-top:1px solid #cccccc;
- 
 }
-
 .github-unker {
   margin-top:50px;
   color:darkgray;
