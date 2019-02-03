@@ -1,5 +1,5 @@
 class OutputsController < ApplicationController
- 
+ before_action :ensure_correct_user, {only: [:edit,:update,:destroy,:show]}
   
   def new
     @outputs = Output.new
@@ -104,7 +104,13 @@ class OutputsController < ApplicationController
     
   end
  
-  
+    def ensure_correct_user
+    @outputs=Output.find_by(id: params[:id])
+    if @outputs.user_id !=@current_user.id
+      flash[:danger]="権限がありません"
+      redirect_to user_path
+    end
+   end
     private
   
   def output_params
@@ -114,7 +120,7 @@ class OutputsController < ApplicationController
   end
    
   
-   
+ 
    
    
 end

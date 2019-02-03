@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user, {only: [:index, :show, :edit, :update]}
+  before_action :authenticate_user, {only: [:show, :edit, :update]}
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
-  before_action :ensure_correct_user, {only: [:edit,:update,:destroy]}
+  before_action :ensure_correct_user, {only: [:edit,:update,:destroy,:show,:profile,:profile_new]}
   
   def new
     @users = User.new
@@ -95,8 +95,8 @@ class UsersController < ApplicationController
   
    def ensure_correct_user
     @users=User.find_by(id: params[:id])
-    if @users.id !=@current_user.id
-      flash[:warning]="権限がありません"
+    if @users.id != @current_user.id
+      flash[:danger]="権限がありません"
       redirect_to user_path
     end
   end  
