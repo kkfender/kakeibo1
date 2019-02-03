@@ -17,4 +17,8 @@ class ThumbnailUploader < CarrierWave::Uploader::Base
     original_filename if original_filename
   end
   
+   def default_url
+       ActionController::Base.helpers.asset_path("default_s.png")
+   end
+  
 end

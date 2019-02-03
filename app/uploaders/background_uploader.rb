@@ -18,7 +18,8 @@ class BackgroundUploader < CarrierWave::Uploader::Base
   end
   
    def default_url
-    "default.jpg"
-  end
+       ActionController::Base.helpers.asset_path("default.jpg")
+   end
+
   
 end
