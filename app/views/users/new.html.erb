@@ -20,9 +20,13 @@
 	<div class="form-signin"> 
 	 <h3 class="form-signin-heading">新規ユーザー登録</h3>
 
-      <% if @error_message%>
-        <p class="errors"><%= @error_message %></p>
+      <% unless @users.errors.blank? %>
+ <div class="panel-body form-horizontal  alert alert-danger">
+ <% @users.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
+      </div>
+<% end %>
 		<%= form_for @users, url: users_path do |f| %>
 		
 		<%= f.hidden_field :thumbnail, :value => "istockphoto-665117088-1024x1024.jpg"%>

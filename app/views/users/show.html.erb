@@ -55,7 +55,7 @@
       <li class="list-group-item">
        <h3><%=Date.today.strftime("%-m月")%>の使える額
        <div class="text-primary number pull-right">
-       <%=@users.monthly_budget==0?"収入を入力してね":
+       <%=(@users.monthly_budget==0 || @users.monthly_budget.nil?)? "収入を入力してね":
       "¥#{(@users.monthly_budget-@users.outputs_month_with.sum[1]-@users.monthly_savings)
       .to_s(:delimited)}"%></div></h3>
       </li>

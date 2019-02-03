@@ -6,9 +6,13 @@
 	<div class="form-signin"> 
 	 <h3 class="form-signin-heading">支出</h3>
 
-      <% if @error_message%>
-        <p class="errors"><%= @error_message %></p>
+       <% unless @outputs.errors.blank? %>
+ <div class="panel-body form-horizontal  alert alert-danger">
+ <% @outputs.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
+      </div>
+<% end %>
 <%= form_for @outputs, url: "/outputs/#{@outputs.id}",:method => :patch,class:"form-horizontal" do|f|%>
   支出日<span class="label label-danger",>必須項目</span>
   <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"),class:"form-control" %><br/>

@@ -3,6 +3,10 @@ class User < ApplicationRecord
    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/
    validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
    validates :name,presence: true, length: { maximum: 10 }
+ validates :monthly_budget,presence: true 
+ validates :monthly_savings,presence: true 
+ validates :total_asets,presence: true
+
   has_many :usersbudges ,dependent: :destroy
   has_many :outputs ,dependent: :destroy
   has_many :budges, through: :usersbudges

@@ -83,7 +83,7 @@ class UsersController < ApplicationController
       flash[:success] = "基本設定を編集しました"
       redirect_to user_path(@users)
     else
-      render "users/profile"
+      render "users/profile_new"
     end
   end
   
