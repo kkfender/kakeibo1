@@ -97,7 +97,7 @@ class UsersController < ApplicationController
     @users=User.find_by(id: params[:id])
     if @users.id != @current_user.id
       flash[:danger]="権限がありません"
-      redirect_to user_path
+      redirect_to "/users/#{@current_user.id}"
     end
   end  
    
