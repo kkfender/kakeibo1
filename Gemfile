@@ -5,7 +5,7 @@ ruby '2.5.3'
 
 
 gem 'sprockets-rails'
-gem 'fog-aws'
+
 gem 'carrierwave'
 gem 'momentjs-rails'
  gem 'font-awesome-sass'
