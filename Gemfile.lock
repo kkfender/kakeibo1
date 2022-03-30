@@ -153,7 +153,8 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.10)
     public_suffix (3.0.3)
-    puma (3.12.0)
+    puma (4.3.12)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -262,7 +263,7 @@ DEPENDENCIES
   momentjs-rails
   pg (= 0.20.0)
   pry-byebug
-  puma (~> 3.11)
+  puma (~> 4.3)
   rails (~> 5.2.2)
   sass-rails (~> 5.0)
   selenium-webdriver
